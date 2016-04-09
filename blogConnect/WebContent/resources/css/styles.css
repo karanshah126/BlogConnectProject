@@ -1,0 +1,122 @@
+#banner{
+	background-color:#08E1EE;
+	background-size:cover;
+	margin:0;
+	height: 10%;
+	width: 100%;
+	}
+
+#signupbutton{
+	background-color:#08E1EE;
+	font-size:14px;
+	font-weight:400;
+
+}
+
+.allInput{
+	color:#010101;
+	
+	}
+	
+#banner h2{
+	color:#fff;
+	float:left;
+	text-align:center;
+	padding: 0px 0 0px 10px;
+	font-family: Lato,appleLogo,sans-serif;
+	}	
+	
+#banner label[for=emailID]
+{
+    color:#fff;
+	float:left;
+	padding:5px;
+	font-family: Lato,appleLogo,sans-serif;
+	
+}
+
+
+
+#banner label[for=Password]
+{
+    color:#fff;
+	float:left;
+	padding:5px;
+	font-family: Lato,appleLogo,sans-serif;
+	
+}
+
+#banner input[type=button]{
+	
+	color:#fff;
+	margin-top:20px;
+	margin-bottom:10px;
+	margin-left:5px;
+	display:inline-block;
+	float:left;
+	font-family: Lato,appleLogo,sans-serif;
+	
+	}
+	
+	#mainPart{
+		padding:10%;
+		}
+		
+	#mainPart label[for=firstName]
+{
+	padding:5px;
+	font-family: Lato,appleLogo,sans-serif;
+}
+#mainPart label[for=lastName]
+{
+	padding:5px;
+	font-family: Lato,appleLogo,sans-serif;
+}
+#mainPart label[for=signEmail]
+{
+	padding:5px;
+	font-family: Lato,appleLogo,sans-serif;
+}
+#mainPart label[for=userName]
+{
+	padding:5px;
+	font-family: Lato,appleLogo,sans-serif;
+}
+#mainPart label[for=passwordsign]
+{
+	padding:5px;
+	font-family: Lato,appleLogo,sans-serif;
+}
+#banner input[type=submit]{
+	
+	margin:5px;
+	font-family: Lato,appleLogo,sans-serif;
+	}
+input {
+ 
+  display: inline-block;
+  font-weight: 100;
+ 
+  font-size: 1rem;
+  font-weight: 100;
+  color: #475B62;
+  border: 1px solid #C5C5C5;
+  border-radius: 4px;
+  outline: 0;
+}
+p {
+  color: #2D3639;
+  font-size:0.8em;
+  font-family: Lato, 'Helvetica Nueue', Helvetica, Arial, sans-serif;
+}
+input.ng-invalid.ng-touched {
+  border: 1px solid #DA3637;
+}
+input.ng-valid.ng-touched {
+  border: 1px solid #509D12;
+}
+	/*@media(max-width:472px)
+	{
+		#banner input[type=button]{
+			margin-top:5px;}
+		}*/

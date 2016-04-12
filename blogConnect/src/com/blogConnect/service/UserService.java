@@ -14,15 +14,34 @@ public class UserService {
 	
 	
 	 
-	 public void insertData(User user) {
+	 public String registerUser(User user)
+	 {
 		 
-	  userDAO.insertData(user);  
-	 }  
-	  
+		if (userDAO.getUser(user).getEmail() !=null)
+		{
+			return "User already exists!";
+		} 
+		else
+		{
+			userDAO.insertData(user);
+			return "Registered Sucessfully!";
+		}
+	 }
+	 
+	 
 	 public List<User> getUserList() {  
 	  return userDAO.getUserList();  
 	 }  
 	  
+		// authenticate the login activity based on the login object
+	 public String authenticateLogin(User user){
+		 return userDAO.authenticateLogin(user);
+	 }
+	 
+	 // get the user object based on the email
+	 public User getUser(User user) {  
+		  return userDAO.getUser(user);
+	 }  
 	
 /*	 public void deleteData(String id) {  
 	  userdao.deleteData(id);  

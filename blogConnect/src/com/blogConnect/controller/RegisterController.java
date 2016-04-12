@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.blogConnect.model.User;
 import com.blogConnect.service.UserService;
@@ -21,7 +22,7 @@ public class RegisterController {
     
     @RequestMapping("/")
     public ModelAndView initiate() {
-       System.out.println("idhar?");
+       System.out.println("Initiated");
         return new ModelAndView("index"); 
     }
 	
@@ -35,8 +36,9 @@ public class RegisterController {
 
 	@RequestMapping(value = "/createUser", method = RequestMethod.POST)
 	public ModelAndView registerUser(@ModelAttribute User user) {
-		System.out.println("hff");
-		userService.insertData(user);
-		return new ModelAndView("redirect:/"); // check this
+
+		String message=userService.registerUser(user);
+		return new ModelAndView("mesu", "message", message); // how do we redirect with message to display on the same page?
+		//return new ModelAndView(  ("redirect:/"); // check this
 	}
 }

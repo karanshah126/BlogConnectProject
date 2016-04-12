@@ -28,20 +28,19 @@ public class UserDAO {
        String sql = "INSERT INTO user (firstName, lastName, email, username, password)"
 	                    + " VALUES (?, ?, ?, ?, ?)";
 	        jdbcTemplate.update(sql, user.getFirstName(), user.getLastName(),
-	                user.getEmail(), user.getUsername(), user.getPassword());
+	                user.getEmail(), user.getUsername(), hashPassword(user.getPassword()));
 	
 	}
 	
 	  
-	 private String getHashPassword(String password) {  
+	 private String hashPassword(String password) {  
+		 
 	  BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();  
-	  String hashedPassword = passwordEncoder.encode(password);  
+	  return passwordEncoder.encode(password);
 	  
-	  System.out.println(hashedPassword);  
-	  return hashedPassword;  
 	 }  
 
-	public User getUser(User user) {
+	public User getUser(String emailORusername) {
 		  
 		User queryResult=new User();  
 		queryResult.setEmail(null);
@@ -52,8 +51,11 @@ public class UserDAO {
 		
 		
 		  List<User> userList = new ArrayList<User>();  
-		  String sql = "select * from user where email='" + user.getEmail()+"'";  
+		  String sql = "select * from user where email='" + emailORusername
+				  		+"' OR username='"+ emailORusername+"'";  
 		  userList = jdbcTemplate.query(sql, new UserMapper());  
+		  
+			 
 		  if(userList.size()==0)
 			  return queryResult;
 		  else
@@ -64,26 +66,19 @@ public class UserDAO {
 	public String authenticateLogin(User user){
 		String email = user.getEmail();
 		String password = user.getPassword();
+		String storedPassword = getUser(email).getPassword();
 		
-		
-		
-		//String sql = "SELECT password FROM user WHERE user.email = ?" ;
-		String storedPassword = getUser(user).getPassword();//this.jdbcTemplate.queryForObject(sql,new Object[]{email},String.class);
-		// user does not exist
+		BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder(); 
 
-		System.out.println("password: '"+password+"'");
-		System.out.println("Stored password: '"+storedPassword+"'");
-		System.out.println(storedPassword==null);
+		
 		if (storedPassword==null){
-			return "user does not exist";
+			return "User does not Exist. Wrong Username, Please Try Again.";
 		}
-		// password matches
-		else if (storedPassword.equals(password)){
+		else if (passwordEncoder.matches(password, storedPassword)){
 			return "success";
 		}
-		//
 		else {
-			return "wrong password";
+			return "Wrong password entered.";
 		}
 	}
 

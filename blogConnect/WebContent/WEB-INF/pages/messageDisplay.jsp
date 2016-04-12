@@ -8,7 +8,7 @@
 </head>
 <body>
 <h3>${session.getUsername()}</h3>
-
+<h3>${message}</h3>
 <h3>${session.isLogin()}</h3>
 </body>
 </html>

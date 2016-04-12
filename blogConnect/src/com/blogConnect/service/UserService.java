@@ -16,11 +16,21 @@ public class UserService {
 	 
 	 public String registerUser(User user)
 	 {
+		 System.out.println("In register user");
+		 System.out.println(user.getEmail());
+		 System.out.println(user.getUsername());
 		 
-		if (userDAO.getUser(user).getEmail() !=null)
+		if (getUser(user.getEmail()).getEmail() !=null )
 		{
-			return "User already exists!";
+			System.out.println(getUser(user.getEmail()));
+			return "Email Address already exists! Please enter a different one.";
 		} 
+		
+		else if (getUser(user.getUsername()).getUsername() !=null )
+		{
+			return "Username already exists! Please enter a different one.";
+		} 
+		
 		else
 		{
 			userDAO.insertData(user);
@@ -28,28 +38,25 @@ public class UserService {
 		}
 	 }
 	 
+	 public User getUser(String emailORUsername) {  
+		  return userDAO.getUser(emailORUsername);  
+		 } 
 	 
 	 public List<User> getUserList() {  
 	  return userDAO.getUserList();  
 	 }  
-	  
-		// authenticate the login activity based on the login object
+
 	 public String authenticateLogin(User user){
 		 return userDAO.authenticateLogin(user);
 	 }
 	 
-	 // get the user object based on the email
-	 public User getUser(User user) {  
-		  return userDAO.getUser(user);
-	 }  
+ 
 	
 /*	 public void deleteData(String id) {  
 	  userdao.deleteData(id);  
 	    
 	 }  
-	  	 public User getUser(String id) {  
-	  return userdao.getUser(id);  
-	 }  
+	  	  
 
 	 public void updateData(User user) {  
 	  userdao.updateData(user);  

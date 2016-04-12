@@ -19,16 +19,16 @@ public class LoginController {
 	@Autowired
 	private UserService userService;
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
-	public ModelAndView login(@ModelAttribute User user){ // login has two attributes: email and pass, coming from the login page's login form 
+	public ModelAndView login(@ModelAttribute User user){ 
 		String result = userService.authenticateLogin(user);
-		// login successfully
+	
 		UserSession usersession = new UserSession();
 		if (result.equals("success")){
 			System.out.println("login sucessfully");
 			
-			ModelAndView modelAndView = new ModelAndView("mesu");
+			ModelAndView modelAndView = new ModelAndView("messageDisplay");
 			
-			User loginedUser = userService.getUser(user);
+			User loginedUser = userService.getUser(user.getEmail());
 			usersession.setUsername(loginedUser.getUsername());
 			usersession.setIsLogin(true);
 			
@@ -37,23 +37,18 @@ public class LoginController {
 			modelAndView.addObject("session", usersession);
 			return modelAndView;
 		}
-		// password not matched
-		else if (result.equals("wrong password")){
-			System.out.println("wrong password");
-			ModelAndView modelAndView = new ModelAndView("redirect:/");
-			return modelAndView;
-		}
-		// user does not exists
+		
 		else{
-			System.out.println("user not exists");
+			System.out.println(result);
 			ModelAndView modelAndView = new ModelAndView("redirect:/");
 			return modelAndView;
 		}
 	}
 	
+	//checking for now, remove later
 	@RequestMapping(value = "/login")
 	 public ModelAndView redirector() {
-	       System.out.println("Redirect to mesu");
-	        return new ModelAndView("mesu"); 
+	       System.out.println("Redirect to messageDisplay");
+	        return new ModelAndView("messageDisplay"); 
 	    }}
 

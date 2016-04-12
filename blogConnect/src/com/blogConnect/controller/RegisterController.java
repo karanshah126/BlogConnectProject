@@ -1,16 +1,12 @@
 package com.blogConnect.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
-import org.springframework.messaging.Message;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-
 import com.blogConnect.model.User;
 import com.blogConnect.service.UserService;
 
@@ -38,7 +34,7 @@ public class RegisterController {
 	public ModelAndView registerUser(@ModelAttribute User user) {
 
 		String message=userService.registerUser(user);
-		return new ModelAndView("mesu", "message", message); // how do we redirect with message to display on the same page?
+		return new ModelAndView("messageDisplay", "message", message); // how do we redirect with message to display on the same page?
 		//return new ModelAndView(  ("redirect:/"); // check this
 	}
 }

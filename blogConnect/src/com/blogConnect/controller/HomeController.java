@@ -28,7 +28,7 @@ public class HomeController {
 	    }
 	  
 	    @RequestMapping("/home")
-	    public ModelAndView initiate() {
+	    public ModelAndView refreshToHome() {
 	     
 	       ModelAndView modelAndView = new ModelAndView("HomePage");
 	       modelAndView.addObject("publicBlogpostList",blogpostService.getPublicBlogpostList());

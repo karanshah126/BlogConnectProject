@@ -1,8 +1,10 @@
 package com.blogConnect.controller;
 
 
+import com.blogConnect.model.Blogpost;
 import com.blogConnect.model.User;
 import com.blogConnect.model.UserSession;
+import com.blogConnect.service.BlogpostService;
 import com.blogConnect.service.UserService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +20,10 @@ import org.springframework.web.servlet.ModelAndView;
 public class LoginController {
 	@Autowired
 	private UserService userService;
-	@RequestMapping(value = "/login", method = RequestMethod.POST)
+	@Autowired
+	private BlogpostService blogpostservice;
+	
+	@RequestMapping(value = "/home", method = RequestMethod.POST)
 	public ModelAndView login(@ModelAttribute User user){ 
 		String result = userService.authenticateLogin(user);
 	
@@ -26,21 +31,22 @@ public class LoginController {
 		if (result.equals("success")){
 			System.out.println("login sucessfully");
 			
-			ModelAndView modelAndView = new ModelAndView("messageDisplay");
+			ModelAndView modelAndView = new ModelAndView("HomePage");
 			
 			User loginedUser = userService.getUser(user.getEmail());
 			usersession.setUsername(loginedUser.getUsername());
 			usersession.setIsLogin(true);
 			
-			// add the session object to the modelandview,
-			// so that the jsp template can render different things on html page based on the session
 			modelAndView.addObject("session", usersession);
+			modelAndView.addObject("publicBlogpostList",blogpostservice.getPublicBlogpostList());
+			
 			return modelAndView;
 		}
 		
 		else{
 			System.out.println(result);
-			ModelAndView modelAndView = new ModelAndView("redirect:/");
+			ModelAndView modelAndView = new ModelAndView("index");
+			modelAndView.addObject("errorMessage", result);
 			return modelAndView;
 		}
 	}
@@ -50,5 +56,15 @@ public class LoginController {
 	 public ModelAndView redirector() {
 	       System.out.println("Redirect to messageDisplay");
 	        return new ModelAndView("messageDisplay"); 
-	    }}
+	    }
 
+	@RequestMapping(value = "/logout")
+	public ModelAndView logout() {
+
+		ModelAndView modelAndView = new ModelAndView("redirect:/");
+	
+		return modelAndView;
+	
+	}
+
+}

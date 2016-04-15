@@ -34,7 +34,12 @@ public class RegisterController {
 	public ModelAndView registerUser(@ModelAttribute User user) {
 
 		String message=userService.registerUser(user);
-		return new ModelAndView("messageDisplay", "message", message); // how do we redirect with message to display on the same page?
+		//ModelAndView hello=new ModelAndView();
+		//hello.addObject("message", message);
+		//return hello;
+		
+	
+	return new ModelAndView("index", "errorMessage", message); // how do we redirect with message to display on the same page?
 		//return new ModelAndView(  ("redirect:/"); // check this
 	}
 }

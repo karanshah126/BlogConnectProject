@@ -39,6 +39,9 @@
 		 <property name="dataSource"  ref="dataSource" />	</bean>
  <bean id="userService" class="com.blogConnect.service.UserService" /> 		
 
+ <bean id="blogpostDao" class="com.blogConnect.dao.BlogpostDAO" >  
+		 <property name="dataSource"  ref="dataSource" />	</bean>
+ <bean id="blogpostService" class="com.blogConnect.service.BlogpostService" /> 	
  <!-- declare datasource bean -->  
  
  <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">  

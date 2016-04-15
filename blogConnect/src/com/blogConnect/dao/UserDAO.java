@@ -42,12 +42,12 @@ public class UserDAO {
 
 	public User getUser(String emailORusername) {
 		  
-		User queryResult=new User();  
-		queryResult.setEmail(null);
-		queryResult.setFirstName(null);
-		queryResult.setLastName(null);
-		queryResult.setUsername(null);
-		queryResult.setPassword(null);
+		User nullUser=new User();  
+		nullUser.setEmail(null);
+		nullUser.setFirstName(null);
+		nullUser.setLastName(null);
+		nullUser.setUsername(null);
+		nullUser.setPassword(null);
 		
 		
 		  List<User> userList = new ArrayList<User>();  
@@ -57,7 +57,7 @@ public class UserDAO {
 		  
 			 
 		  if(userList.size()==0)
-			  return queryResult;
+			  return nullUser;
 		  else
 			  return userList.get(0);
 		
@@ -67,12 +67,13 @@ public class UserDAO {
 		String email = user.getEmail();
 		String password = user.getPassword();
 		String storedPassword = getUser(email).getPassword();
+	
 		
 		BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder(); 
 
 		
 		if (storedPassword==null){
-			return "User does not Exist. Wrong Username, Please Try Again.";
+			return "User does not Exist. Wrong Email, Please Try Again.";
 		}
 		else if (passwordEncoder.matches(password, storedPassword)){
 			return "success";

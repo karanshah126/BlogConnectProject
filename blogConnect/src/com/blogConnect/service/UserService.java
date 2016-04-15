@@ -16,9 +16,6 @@ public class UserService {
 	 
 	 public String registerUser(User user)
 	 {
-		 System.out.println("In register user");
-		 System.out.println(user.getEmail());
-		 System.out.println(user.getUsername());
 		 
 		if (getUser(user.getEmail()).getEmail() !=null )
 		{

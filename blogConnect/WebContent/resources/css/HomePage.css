@@ -1,0 +1,210 @@
+#banner{
+	background-color:#08E1EE;
+	background-size:cover;
+	margin:0;
+	height: 10%;
+	width: 100%;
+	}
+
+
+
+.allInput{
+	color:#010101;
+	
+	}
+	
+#banner h2{
+	color:#fff;
+	float:left;
+	text-align:center;
+	padding: 0px 0 0px 10px;
+	font-family: Lato,appleLogo,sans-serif;
+	}	
+	
+
+
+
+	
+	#mainPart{
+		padding:10%;
+		}
+		
+	
+input {
+ 
+  display: inline-block;
+  font-weight: 100;
+ 
+  font-size: 1rem;
+  font-weight: 100;
+  color: #475B62;
+  border: 1px solid #C5C5C5;
+  border-radius: 4px;
+  outline: 0;
+}
+p {
+  color: #2D3639;
+  font-size:0.8em;
+  font-family: Lato, 'Helvetica Nueue', Helvetica, Arial, sans-serif;
+}
+input.ng-invalid.ng-touched {
+  border: 1px solid #DA3637;
+}
+input.ng-valid.ng-touched {
+  border: 1px solid #509D12;
+}
+	/*@media(max-width:472px)
+	{
+		#banner input[type=button]{
+			margin-top:5px;}
+		}*/
+
+
+
+
+#custom-search-input {
+        margin:0;
+        /*margin-top: 10px;*/
+        padding: 5%;
+		/*position:absolute;*/
+		float:left;
+		/*left:30px;
+		top:5px;*/
+	
+    }
+	
+	
+
+	
+ 
+    #custom-search-input .search-query {
+        padding-right: 3px;
+        padding-right: 4px \9;
+        padding-left: 3px;
+        padding-left: 4px \9;
+        /* IE7-8 doesn't have border-radius, so don't indent the padding */
+ 
+        margin-bottom: 0;
+        -webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+        border-radius: 3px;
+		
+		/*newly added code for input*/
+		display: inline-block;
+  font-weight: 200;
+ 
+  font-size: 1.5rem;
+  
+  color: #475B62;
+  border: 1px solid #C5C5C5;
+  border-radius: 4px;
+  outline: 0;
+		
+    }
+ 
+    #custom-search-input button {
+        border: 0;
+        background: none;
+        /** belows styles are working good */
+        padding: 2px 5px;
+        margin-top: 2px;
+        position: relative;
+        left: -28px;
+        /* IE7-8 doesn't have border-radius, so don't indent the padding */
+        margin-bottom: 0;
+        -webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+        border-radius: 3px;
+        color:grey;
+	}
+ 
+    .search-query:focus + button {
+        z-index: 3;   
+    }
+	
+	.username{
+		color:#FFFFFF;
+		font-weight:600;
+		/*padding:15px;*/
+		float:left;
+		padding:2%;
+		
+			}
+	.setting{
+		width: 50px;
+		height:50px;
+	}
+	.navbar-nav{
+		width:25%;}
+	
+	@media(max-width:768px){
+		.username{
+			padding:3%;}
+		}
+/*		@media (min-width: 200px) and (max-width: 1000px) {
+   .collapse {
+       display: none !important;
+   }
+}*/
+   @media only screen and (min-width: 500px) {
+    .collapse {
+       /* display: block;*/
+	   display:block;
+	   
+    }
+
+    .navbar-header {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+     .collapse {
+        display: none;
+     }
+
+     .navbar-header {
+       display: block;
+	   /*display:none;*/
+     }
+	 
+}
+@media(max-width:500px){
+		.icons{
+			float:relative;}
+		}
+		
+.gpwrap{
+	/*width: 400px;*/
+	border: 1px solid #CCC;
+	padding: 15px;
+	margin: 25px 0;
+	box-shadow: 0 0 6px -2px #000;
+	float:left;
+}
+.gpwrap p{
+	margin: 0 0 25px 0;
+	font-size:14px;
+}
+.gppost.hide-class > div{
+	position: relative;
+}
+.gppost.hide-class > div:after{
+	position: absolute;
+	content: '';
+	bottom: 0;
+	left: 0;
+	right: 0;
+	height: 30px;
+	background: linear-gradient( rgba(255,255,255,0), #fff);
+}
+#button {
+    color: #fff;
+    /*margin-top: 20px;
+    margin-bottom: 10px;
+    margin-left: 5px;*/
+	
+    display: inline-block;
+    float: left;
+    font-family: Lato,appleLogo,sans-serif;
+}

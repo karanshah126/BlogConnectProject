@@ -24,7 +24,7 @@ public class BlogpostCreationController {
 	private BlogpostService blogpostService;
 
 	@RequestMapping(value = "/createBlogpost", method = RequestMethod.POST)
-	public void createBlogpost(@ModelAttribute Blogpost blogpost,  HttpSession session){ 
+	public ModelAndView createBlogpost(@ModelAttribute Blogpost blogpost,  HttpSession session){ 
 		
 		UserSession userSession=(UserSession) session.getAttribute("session");
 		blogpost.setAuthor(userSession.getUsername());
@@ -35,25 +35,18 @@ public class BlogpostCreationController {
 		String result = blogpostService.submitBlogpost(blogpost); 
 		System.out.println(result);
 		
-		ArrayList<Blogpost> publicblogpostlist=new ArrayList<Blogpost>();
+/*		ArrayList<Blogpost> publicblogpostlist=new ArrayList<Blogpost>();
 		publicblogpostlist=(ArrayList<Blogpost>) blogpostService.getPublicBlogpostList();
 		
 		for (Blogpost item : publicblogpostlist) {   
 		    System.out.println(item.getAuthor() + " " + item.getContent());
+		}*/
+	
+			ModelAndView modelAndView = new ModelAndView("BlogCreation");
+			modelAndView.addObject("successMessage", result);
+			return modelAndView;
 		}
-	/*
-			
-			ModelAndView modelAndView = new ModelAndView("messageDisplay");
-			
-			User loginedUser = userService.getUser(user.getEmail());
-			usersession.setUsername(loginedUser.getUsername());
-			usersession.setIsLogin(true);
-			
-			// add the session object to the modelandview,
-			// so that the jsp template can render different things on html page based on the session
-			modelAndView.addObject("session", usersession);
-			return modelAndView;*/
-		}
+
 	
 	@RequestMapping(value = "/hj", method = RequestMethod.POST)
 	public void uploadImage(@RequestParam("upload") MultipartFile file ){ 
@@ -61,6 +54,13 @@ public class BlogpostCreationController {
 		
 		
 	}
+	
+	
+	  @RequestMapping("/back")
+	public ModelAndView redirectToHome() {
+	       System.out.println("TO HOME");
+	        return new ModelAndView("HomePage"); 
+	    }
 		
 	}
 	

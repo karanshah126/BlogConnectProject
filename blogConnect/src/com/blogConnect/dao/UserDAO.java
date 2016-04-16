@@ -19,7 +19,6 @@ public class UserDAO {
 	public void setDataSource(DataSource dataSource) {
 	     this.dataSource = dataSource;
 	      this.jdbcTemplate = new JdbcTemplate(dataSource);
-	    //jdbcTemplate = new JdbcTemplate(dataSource);
 	}
 	    
 
@@ -84,6 +83,16 @@ public class UserDAO {
 			return "Wrong password entered.";
 		}
 	}
+	
+	
+	public void updateSettings(User user,String UserName) {
+		
+	       String sql = "UPDATE user SET firstName='"+user.getFirstName()+"', lastName='"+user.getLastName()
+	       +"', bio='"+user.getBio()+"', gender='"+user.getGender()+"', birthdate='"+user.getBirthdate()+"'";
+
+		        jdbcTemplate.update(sql);
+		
+		}
 
 	 
 

@@ -37,6 +37,12 @@ public class UserService {
 	 
 	 public User getUser(String emailORUsername) {  
 		  return userDAO.getUser(emailORUsername);  
+		 }
+	 
+	 public String updateSettings(User user, String username) { 
+
+		  userDAO.updateSettings(user,username);  
+		  return "Information Updated";
 		 } 
 	 
 	 public List<User> getUserList() {  
@@ -49,15 +55,5 @@ public class UserService {
 	 
  
 	
-/*	 public void deleteData(String id) {  
-	  userdao.deleteData(id);  
-	    
-	 }  
-	  	  
 
-	 public void updateData(User user) {  
-	  userdao.updateData(user);  
-	    
-	 }  
-	  */
 }

@@ -1,6 +1,6 @@
 package com.blogConnect.model;
 
-import java.util.List;
+
 
 public class User 
 	{  
@@ -10,7 +10,10 @@ public class User
 		 private String lastName;  
 		 private String password;  
 		 private String email;
-		 private List<User> friendlist;
+		 private String bio;
+		 private String gender;
+		 private String birthdate;
+	
 		 
 		  
 		 public String getUsername() {  
@@ -51,6 +54,32 @@ public class User
 		  
 		 public void setEmail(String Email) {  
 		  this.email = Email;  
-		 }  
+		 }
+
+		public String getBio() {
+			return bio;
+		}
+
+		public void setBio(String bio) {
+			this.bio = bio;
+		}
+
+		public String getGender() {
+			return gender;
+		}
+
+		public void setGender(String gender) {
+			this.gender = gender;
+		}
+
+		public String getBirthdate() {
+			return birthdate;
+		}
+
+		public void setBirthdate(String birthdate) {
+			this.birthdate = birthdate;
+		}
+
+
 	}  
 

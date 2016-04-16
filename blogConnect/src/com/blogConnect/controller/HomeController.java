@@ -14,12 +14,15 @@ import org.springframework.web.servlet.ModelAndView;
 import com.blogConnect.model.Blogpost;
 import com.blogConnect.model.UserSession;
 import com.blogConnect.service.BlogpostService;
+import com.blogConnect.service.UserService;
 
 @Controller
 
 public class HomeController {
 	@Autowired
 	private BlogpostService blogpostService;
+	@Autowired	
+	private UserService userService;
 	
 	  @RequestMapping("/blogCreation")
 	    public ModelAndView redirectToBlog() {
@@ -43,13 +46,15 @@ public class HomeController {
 	       modelAndView.addObject("blogpostList",blogpostService.getPrivateBlogpostList(userSession.getUsername()));
 	        return modelAndView; 
 	    }
+	    
+	    @RequestMapping("/changeSettings")
+	    public ModelAndView redirectToChangeSettings(HttpSession session) {
+	     
+	    	UserSession userSession=(UserSession) session.getAttribute("session");
+	    	ModelAndView modelAndView = new ModelAndView("ChangeSettings");
+	       modelAndView.addObject("userDetails",userService.getUser(userSession.getUsername()));
+	        return modelAndView; 
+	    }
 	  
-	  
-	/*  @RequestMapping("/friendsView")
-	    public ModelAndView redirectToFriendsView() {
-	       System.out.println("Change to Friends View");
-	      ModelAndView mav=new ModelAndView();
-	      
-	        return new ModelAndView("BlogCreation"); 
-	    }*/
+
 }

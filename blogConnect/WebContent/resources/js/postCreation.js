@@ -25,7 +25,7 @@ $(document).ready(function() {
 
 //function for changing the text on the button
 
-$('editor1').attr('content');
+
 
 jQuery( document ).delegate('#image', 'change', function() {
     ext = jQuery(this).val().split('.').pop().toLowerCase();
@@ -83,5 +83,22 @@ $( "#image123" ).click(function() {
 
 
 });
+
+$('#cke_content').change(function () {
+    if ($.trim($('#cke_content').val()).length < 1) {
+
+        $('#output').html('You need to fill the blog content');
+                    $("#postButton").prop("disabled",true);
+
+    } else {
+
+       // $('#output').html('Your users managed to put something in the box!');
+        $("#postButton").prop("disabled",false);
+        //No guarantee it isn't mindless gibberish, sorry.
+
+    }
+});
+
+
 
 });

@@ -27,11 +27,20 @@ public class HomeController {
 	        return new ModelAndView("BlogCreation"); 
 	    }
 	  
-	    @RequestMapping("/home")
+	    @RequestMapping("/homepage")
 	    public ModelAndView refreshToHome() {
 	     
 	       ModelAndView modelAndView = new ModelAndView("HomePage");
-	       modelAndView.addObject("publicBlogpostList",blogpostService.getPublicBlogpostList());
+	       modelAndView.addObject("blogpostList",blogpostService.getPublicBlogpostList());
+	        return modelAndView; 
+	    }
+	    
+	    @RequestMapping("/friendsView")
+	    public ModelAndView refreshToFriendView(HttpSession session) {
+	     
+	    	UserSession userSession=(UserSession) session.getAttribute("session");
+	       ModelAndView modelAndView = new ModelAndView("HomePage");
+	       modelAndView.addObject("blogpostList",blogpostService.getPrivateBlogpostList(userSession.getUsername()));
 	        return modelAndView; 
 	    }
 	  

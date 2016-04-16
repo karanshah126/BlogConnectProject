@@ -27,7 +27,7 @@
 </h2>
 </div>
 <div class="col-lg-offset-1 col-lg-4 col-md-offset-1 col-md-5 col-sm-offset-1 col-sm-7 col-xs-12">
-<form name="headerForm" method="post" action="home">
+<form name="headerForm" method="post" action="homepage">
 
  <label for="emailID">Email id<br>
   <input type="email" name="email" placeholder="Enter email" class="allInput" ng-model="emailID" ng-required="true">

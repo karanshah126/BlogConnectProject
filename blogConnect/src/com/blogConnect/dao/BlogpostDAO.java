@@ -86,7 +86,7 @@ public class BlogpostDAO {
 				  +"' union SELECT blogpost.* FROM blogpost inner join friends f1 ON blogpost.author=f1.username"+
 				  "WHERE blogpost.type='private'  AND blogpost.author='"+username+
 				  "' AND  EXISTS (select * from friends f2 where f2.username='"
-				  +userInSession+"' and f2.friendname='"+username+"') Order by postID";  
+				  +userInSession+"' and f2.friendname='"+username+"') Order by postID DESC";  
 		  
 		  
 		  blogpostList = jdbcTemplate.query(sql, new BlogpostMapper());  

@@ -27,8 +27,10 @@ public class UserDAO {
 	
        String sql = "INSERT INTO user (firstName, lastName, email, username, password)"
 	                    + " VALUES (?, ?, ?, ?, ?)";
+       String sql2= "   Insert into friends values('"+user.getUsername()+"','"+user.getUsername()+"') ";
 	        jdbcTemplate.update(sql, user.getFirstName(), user.getLastName(),
 	                user.getEmail(), user.getUsername(), hashPassword(user.getPassword()));
+	        jdbcTemplate.update(sql2);
 	
 	}
 	

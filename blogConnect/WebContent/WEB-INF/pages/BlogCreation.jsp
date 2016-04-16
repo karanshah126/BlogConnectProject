@@ -100,8 +100,8 @@
     <p ng-show="myform.title.$invalid && myform.title.$touched ">You need to enter a valid title.
  </p>
 
-    <textarea rows="10" cols="100" name="content" id="content" placeholder="Blog Body" ng-model="blog.blogBody" ng-required="true" required/></textarea>
-        <p ng-show="myform.title.$invalid && myform.content.$touched ">You need to fill the blog body.
+    <textarea rows="10" cols="100" name="content" id="content" placeholder="Blog Body" ng-model="blog.content" ng-required="true" required/></textarea>
+        <p id="output">You need to fill the Content.
  </p>
 
 
@@ -121,7 +121,7 @@
     </fieldset>
 
     <button type="submit" id="public" class="btn public" onClick="toggleText()">Public</button>
-    <button type="submit" class="btn post" ng-disabled="myform.title.$invalid">Post</button>
+    <button type="submit" class="btn post" ng-disabled="myform.title.$invalid" id="postButton">Post</button>
     <button type="submit" id="image123" class="btn photo">Photo (Optional)</button>
 
       <div style="clear:both"></div>

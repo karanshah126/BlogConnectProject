@@ -1,7 +1,8 @@
 package com.blogConnect.model;
 
+import java.util.List;
 
-	public class User 
+public class User 
 	{  
 		  
 		 private String username;  
@@ -9,7 +10,7 @@ package com.blogConnect.model;
 		 private String lastName;  
 		 private String password;  
 		 private String email;
-		 
+		 private List<User> friendlist;
 		 
 		  
 		 public String getUsername() {  

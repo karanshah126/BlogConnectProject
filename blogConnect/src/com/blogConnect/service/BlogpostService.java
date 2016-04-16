@@ -23,5 +23,9 @@ public class BlogpostService {
 	 public List<Blogpost> getPublicBlogpostList() {  
 		  return blogpostDAO.getPublicBlogpostList(); 
 		 }  
+	 
+	 public List<Blogpost> getPrivateBlogpostList(String sessionUsername) {  
+		  return blogpostDAO.getPrivateBlogpostList(sessionUsername); 
+		 } 
 	
 }

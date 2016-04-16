@@ -175,9 +175,9 @@ input.ng-valid.ng-touched {
 		}
 		
 .gpwrap{
-	/*width: 400px;*/
+	width: 100%;
 	border: 1px solid #CCC;
-	padding: 15px;
+	padding: 5px;
 	margin: 25px 0;
 	box-shadow: 0 0 6px -2px #000;
 	float:left;

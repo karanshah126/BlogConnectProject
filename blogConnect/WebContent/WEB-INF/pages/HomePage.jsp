@@ -74,8 +74,8 @@
                 <li><a href="#" class="icons"><i class="fa fa-cog fa-3x"></i>Settings</a></li>
                 <li><a href="blogCreation" class="icons"><i class="fa fa-pencil fa-3x"></i> Post</a></li>
                 <li><a href="#" class="icons"><i class="fa fa-commenting-o fa-3x"></i> Chat</a></li>
-                <li><a href="#" class="icons"><i class="fa fa-child fa-3x"></i> Friend View</a></li>
-                <li><a href="#" class="icons"><i class="fa fa-eye fa-3x"></i> Public View</a></li>
+                <li><a href="friendsView" class="icons"><i class="fa fa-child fa-3x"></i> Friend View</a></li>
+                <li><a href="homepage" class="icons"><i class="fa fa-eye fa-3x"></i> Public View</a></li>
               </ul>
             </div><!--/.nav-collapse -->
           </div>
@@ -84,7 +84,7 @@
       <div class="col-md-10.5 col-lg-10 col-sm-10 col-xs-12">
       
       <div class="row">
-      <c:forEach var="blog" items="${publicBlogpostList}">
+      <c:forEach var="blog" items="${blogpostList}">
       <div class="col-lg-6">
      
      <div class="gpwrap">

@@ -7,6 +7,8 @@ import com.blogConnect.model.UserSession;
 import com.blogConnect.service.BlogpostService;
 import com.blogConnect.service.UserService;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -23,10 +25,12 @@ public class LoginController {
 	@Autowired
 	private BlogpostService blogpostservice;
 	
-	@RequestMapping(value = "/home", method = RequestMethod.POST)
+	@RequestMapping(value = "/homepage", method = RequestMethod.POST)
 	public ModelAndView login(@ModelAttribute User user){ 
 		String result = userService.authenticateLogin(user);
 	
+		
+		
 		UserSession usersession = new UserSession();
 		if (result.equals("success")){
 			System.out.println("login sucessfully");
@@ -38,7 +42,7 @@ public class LoginController {
 			usersession.setIsLogin(true);
 			
 			modelAndView.addObject("session", usersession);
-			modelAndView.addObject("publicBlogpostList",blogpostservice.getPublicBlogpostList());
+			modelAndView.addObject("blogpostList",blogpostservice.getPublicBlogpostList());
 			
 			return modelAndView;
 		}

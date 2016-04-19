@@ -34,6 +34,10 @@
   <property name="suffix" value=".jsp" />  
  </bean>
  
+ <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+ <!-- <property name="maximumFileSize"><value>100000</value></property>
+  --></bean>
+ 
  
  <bean id="userDao" class="com.blogConnect.dao.UserDAO" >  
 		 <property name="dataSource"  ref="dataSource" />	</bean>
@@ -42,6 +46,13 @@
  <bean id="blogpostDao" class="com.blogConnect.dao.BlogpostDAO" >  
 		 <property name="dataSource"  ref="dataSource" />	</bean>
  <bean id="blogpostService" class="com.blogConnect.service.BlogpostService" /> 	
+ 
+ <bean id="notificationDao" class="com.blogConnect.dao.NotificationDAO" >  
+		 <property name="dataSource"  ref="dataSource" />	</bean>
+ <bean id="notificationService" class="com.blogConnect.service.NotificationService" /> 	
+ 
+
+ <bean id="uploadservice" class="com.blogConnect.service.UploadService" /> 	
  <!-- declare datasource bean -->  
  
  <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">  

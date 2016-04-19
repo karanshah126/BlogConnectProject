@@ -114,7 +114,7 @@
  
 </body>
 <!--  <script src="js/jquery.collapser.js"></script>-->
-<script src="<c:url value="/resources/js/collapser.js" />"></script>
+<script src="<c:url value="/resources/js/jquery.collapser.js" />"></script>
 <script src="<c:url value="/resources/js/HomePage.js" />"></script>
 <!-- <script type="text/javascript" src="js/HomePage.js"></script>  -->
 </html>

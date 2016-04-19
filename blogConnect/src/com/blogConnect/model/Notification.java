@@ -6,6 +6,7 @@ public class Notification {
 	String type;
 	String content;
 	String sendername;
+	String receivername;
 	
 	public long getNotifid() {
 		return notifid;
@@ -30,6 +31,12 @@ public class Notification {
 	}
 	public void setSendername(String sendername) {
 		this.sendername = sendername;
+	}
+	public String getReceivername() {
+		return receivername;
+	}
+	public void setReceivername(String receivername) {
+		this.receivername = receivername;
 	}
 	
 }

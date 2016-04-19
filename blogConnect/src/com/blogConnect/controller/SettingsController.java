@@ -28,7 +28,7 @@ public class SettingsController {
 	public ModelAndView createBlogpost(@ModelAttribute User user,  HttpSession session){ 
 		
 		 UserSession userSession=(UserSession) session.getAttribute("session");
-			userSession.getUsername();
+		
 		
 		String result = userService.updateSettings(user,userSession.getUsername()); 
 		System.out.println(result);

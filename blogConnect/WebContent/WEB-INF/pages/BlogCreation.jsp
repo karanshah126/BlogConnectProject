@@ -1,4 +1,5 @@
-<!--<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>-->
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
 <!DOCTYPE html>
 <html ng-app="blogCreationPage">
 	<head>
@@ -7,12 +8,14 @@
       <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-      <link rel="stylesheet" href="<c:url value="/resources/css/blogpostCreation.css" />">
+     <!-- <link rel="stylesheet" href="css/blogpostCreation.css">-->
+     <link rel="stylesheet" href="<c:url value="/resources/css/blogpostCreation.css" />">
       <link rel="stylesheet" href="<c:url value="/resources/css/font-awesome.min.css" />">
 
       <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
     <script src="https://code.angularjs.org/1.4.5/angular-route.js"></script>
-    <script src="<c:url value="/resources/js/ckeditor/ckeditor.js" />"></script>
+  <!--  <script type="text/javascript" src="ckeditor/ckeditor/ckeditor.js"></script>-->
+	 <script src="<c:url value="/resources/js/ckeditor/ckeditor.js" />"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
       <title>BlogConnect</title>
 	</head>
@@ -100,8 +103,11 @@
     <p ng-show="myform.title.$invalid && myform.title.$touched ">You need to enter a valid title.
  </p>
 
-    <textarea rows="10" cols="100" name="content" id="content" placeholder="Blog Body" ng-model="blog.content" ng-required="true" required/></textarea>
-        <p id="output">You need to fill the Content.
+    <textarea rows="10" cols="100" name="content" id="content" placeholder="Blog Body"> 
+    </textarea>
+    
+    
+        <p id="output" style=" color:#FF0004;">
  </p>
 
 
@@ -120,15 +126,18 @@
 
     </fieldset>
 
-    <button type="submit" id="public" class="btn public" onClick="toggleText()">Public</button>
-    <button type="submit" class="btn post" ng-disabled="myform.title.$invalid" id="postButton">Post</button>
+    <button type="button" id="public" class="btn public" onClick="toggleText()">Public</button>
+    <button type="submit" class="btn post" id="postButton" ng-disabled="myform.title.$invalid">Post</button>
     <button type="submit" id="image123" class="btn photo">Photo (Optional)</button>
-
       <div style="clear:both"></div>
 			<script>
-        CKEDITOR.replace('content');
+        CKEDITOR.replace('content', {fileBrowserImageUploadUrl:'post/upload'});
       </script>
   </form>
+  <form action="post/upload" method="POST" enctype="multipart/form-data">
+      <input type="file" name="upload" >
+      <input type="submit">
+     </form>
 </section>
 </div>
 </div>
@@ -142,4 +151,6 @@
 </body>
 
 <script type="text/javascript" src="<c:url value="/resources/js/postCreation.js" />"></script>
+<!--<script type="text/javascript" src="js/postCreation.js"></script>-->
+    
 </html>

@@ -75,7 +75,6 @@ public class BlogpostDAO {
 		nullPost.setTitle(null);
 		nullPost.setType(null);
 		
-		IF 
 		
 		*/
 		

@@ -4,21 +4,80 @@ var blogCreationPage = angular.module('blogCreationPage', []);
 
 window.onload= function(){
 
-	 var el = document.getElementById("public").onclick= function togglePost(){
+         var el = document.getElementById("public").onclick= function togglePost(){
 
-		 if (this.textContent == "Public")
+                 if (this.textContent == "Public")
    {
        this.textContent = "Private";
-	   this.value = "Private";
+           this.value = "Private";
    }
    else
    {
      this.textContent = "Public";
-	 this.value = "Private";
+         this.value = "Private";
    }
+   };
 
-		 };
-	};
+
+  var editor = CKEDITOR.instances.content;
+
+
+          editor.on( 'change', function() {
+       var data = editor.getData();
+        validateCKEDITORforBlank(data);
+
+
+    } );
+
+
+         $('#title').change(validateTitle);
+
+        document.getElementById("postButton").onclick = function() {
+
+                var data = editor.getData();
+                validateCKEDITORforBlank(data);};
+                validateTitle();
+
+
+
+                 };
+
+
+
+function validateCKEDITORforBlank(ckData)
+{
+   ckData = ckData.replace(/<[^>]*>|\s/g, '');
+   var vArray = new Array();
+   vArray = ckData.split("&nbsp;");
+   var vFlag = 0;
+   for(var i=0;i<vArray.length;i++)
+   {
+       if(vArray[i] == '' || vArray[i] == "")
+       {
+          continue;
+       }
+       else
+       {
+           vFlag = 1;
+           break;
+       }
+    }
+    if(vFlag == 0)
+    {
+      // alert('Entered if');
+            $('#output').html('You need to fill the blog content');
+       $("#postButton").prop("disabled",true);
+            return true;
+    }
+    else
+    {
+      // alert('Entered else');
+           $('#output').html('');
+       $("#postButton").prop("disabled",false);
+
+           return false;
+    }
+}
 
 $(document).ready(function() {
 
@@ -53,17 +112,11 @@ It removes the image, clears and unhides the file input field.
 */
 jQuery('#image_preview a').bind('click', function () {
     resetFormElement(jQuery('#image'));
-    //$('div#image_preview').remove();
-	//jQuery('#image').slideDown();
+
     jQuery(this).parent().slideUp();
     return false;
 });
 
-/*$(document).ready(function() {
-$( "#image-remove" ).click(function() {
-  alert( "Handler for .click() called." );
-});
-});*/
 
 
 /**
@@ -72,7 +125,7 @@ $( "#image-remove" ).click(function() {
  * @param e jQuery object
  */
 function resetFormElement(e) {
-	$('div#image-preview').remove();
+        $('div#image-preview').remove();
     e.wrap('<form>').closest('form').get(0).reset();
     e.unwrap();
 }
@@ -84,21 +137,19 @@ $( "#image123" ).click(function() {
 
 });
 
-$('#cke_content').change(function () {
-    if ($.trim($('#cke_content').val()).length < 1) {
 
-        $('#output').html('You need to fill the blog content');
-                    $("#postButton").prop("disabled",true);
 
-    } else {
+});
 
-       // $('#output').html('Your users managed to put something in the box!');
-        $("#postButton").prop("disabled",false);
-        //No guarantee it isn't mindless gibberish, sorry.
-
+function validateTitle(){
+    //validateCKEDITORforBlank(data);
+    if ($('#title').val().length   >   0 )
+        {
+        $("#postButton").prop("disabled", false);
+                $("#buttonErrorMessage").html("");
     }
-});
-
-
-
-});
+    else {
+        $("#postButton").prop("disabled", true);
+                $("#buttonErrorMessage").html("Enter valid title");
+    }
+        }

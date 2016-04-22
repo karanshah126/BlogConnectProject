@@ -200,7 +200,7 @@
         <div id="passwordReset" class="col-lg-offset-1 col-lg-5" style="display:none;">
 
 		 <label  for="oldpwd" >Old Password<br>
-  <input type="password" id="oldPass" name="oldpwd" class="allInput" ng-model="oldpwd"
+  <input type="password" id="oldPass" name="oldPassword" class="allInput" ng-model="oldpwd"
   ng-required="true">
   <p ng-show="oldpwd.$invalid && oldpwd.$touched">Enter a valid password.
  </p>
@@ -210,7 +210,7 @@
   
 
   <label  for="newpwd">New Password<br>
-  <input type="password" id="newPass" name="newpwd" class="allInput" ng-model="user.newpwd"  ng-minlength="6" ng-maxlength="14" ng-required="true">
+  <input type="password" id="newPass" name="newPassword" class="allInput" ng-model="user.newpwd"  ng-minlength="6" ng-maxlength="14" ng-required="true">
    <p ng-show="pwdform.newpwd.$invalid && pwdform.newpwd.$touched ">Password should be between 6-14 characters long.
  </p>
   </label>

@@ -80,6 +80,18 @@ public class SettingsController {
 
 
 	
+	@RequestMapping(value = "/", method = RequestMethod.POST )
+	public ModelAndView setNewPassword(HttpServletRequest request, HttpSession session) {
+		String newPassword=	request.getParameter("newPassword");
+		System.out.println("NEW PASSWORD:"+newPassword);
+		UserSession userSession=(UserSession) session.getAttribute("session");
+		
+		userService.resetPassword(newPassword, userSession.getUsername());
+		 ModelAndView modelAndView = new ModelAndView("redirect:/back");
+	     
+	        return modelAndView; 
+	}
+	
 		
 	}
 

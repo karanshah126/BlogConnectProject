@@ -67,11 +67,11 @@
             </div>
             <div class="navbar-collapse collapse sidebar-navbar-collapse width" style="width:100%;">
               <ul class="nav navbar-nav">
-                <li><a href="setting.html" class="icons"><i class="fa fa-cog fa-3x"></i>Settings</a></li>
-                <li><a href="BlogCreation.html" class="icons"><i class="fa fa-pencil fa-3x"></i> Post</a></li>
-                <li><a href="#" class="icons"><i class="fa fa-bell fa-3x" aria-hidden="true"></i> Notifs</a></li>
-                <li><a href="HomePage.html" class="icons"><i class="fa fa-child fa-3x"></i> Friend View</a></li>
-                <li><a href="HomePage.html" class="icons"><i class="fa fa-eye fa-3x"></i> Public View</a></li>
+                   <li><a href="changeSettings" class="icons"><i class="fa fa-cog fa-3x"></i>Settings</a></li>
+                <li><a href="blogCreation" class="icons"><i class="fa fa-pencil fa-3x"></i> Post</a></li>
+                <li><a href="notifications" class="icons"><i class="fa fa-commenting-o fa-3x"></i> Notifs</a></li>
+                <li><a href="friendsView" class="icons"><i class="fa fa-child fa-3x"></i> Friend View</a></li>
+                <li><a href="homepage" class="icons"><i class="fa fa-eye fa-3x"></i> Public View</a></li>
               </ul>
             </div><!--/.nav-collapse -->
           </div>

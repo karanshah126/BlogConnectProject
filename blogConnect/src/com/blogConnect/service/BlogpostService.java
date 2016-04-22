@@ -29,6 +29,6 @@ public class BlogpostService {
 		 } 
 	
 		public List<Blogpost> getUserBlogpostList(String username,String userInSession){
-			return getUserBlogpostList(username, userInSession);
+			return blogpostDAO.getUserBlogpostList(username, userInSession);
 		}
 }

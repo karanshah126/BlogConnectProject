@@ -34,7 +34,7 @@ public class UploadService {
 	
 	public static String responseResult="";
 	
-    public void Execute(Upload upload, Callback<ImageResponse> callback) { 
+    public String Execute(Upload upload, Callback<ImageResponse> callback) { 
         final Callback<ImageResponse> cb = callback;
         //final UiCallback cb = (UiCallback) callback;
         RestAdapter restAdapter = buildRestAdapter();
@@ -65,10 +65,10 @@ public class UploadService {
                         	
                         	System.out.println("sucess: "+imageResponse.success);
                         	System.out.println(imageResponse.data.link);
-                        	 responseResult=imageResponse.data.link;
+                        	responseResult=imageResponse.data.link;
                         	
                         	 
-                        	 setResponseResult(responseResult);
+                        	
                         	 
                         }
                     }
@@ -79,14 +79,23 @@ public class UploadService {
 
                         responseResult="fail";
                     }
+                    
+                  
                 });
+   
+        try {
+			Thread.sleep(5000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+        
+        return responseResult;
         
     }
     
     
-    public void  setResponseResult(String responseResult){
-    	this.responseResult=responseResult;
-    }
+  
     
     private RestAdapter buildRestAdapter() {
         RestAdapter imgurAdapter = new RestAdapter.Builder().setServer(ImgurAPI.server).build();

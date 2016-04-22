@@ -1,17 +1,17 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ page import="java.util.List"%>
-<%-- <% List eList = (List)request.getAttribute("BlogList");%> --%>
 <!DOCTYPE html>
-<html>
+<html ng-app="userHomePage">
 	<head>
       <meta charset="UTF-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-   <!--   <link rel="stylesheet" href="css/HomePage.css"> --> 
-      <link href="<c:url value="/resources/css/HomePage.css" />" rel="stylesheet">
-      <link rel="stylesheet" href="<c:url value="/resources/css/font-awesome.min.css" />">
+     <!-- <link rel="stylesheet" href="css/Search.css">
+      <link rel="stylesheet" href="css/font-awesome.min.css">-->
+
+     <link href="<c:url value="/resources/css/Search.css" />" rel="stylesheet">
+       <link href="<c:url value="/resources/css/font-awesome.min.css" />" rel="stylesheet">
       
       <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
     <script src="https://code.angularjs.org/1.4.5/angular-route.js"></script>  
@@ -26,15 +26,15 @@
 			<div class="container-fluid">
 				<div class="row" id="bannerElements">
 					<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-						<h2> <a href="homepage"> BLOGCONNECT</a> </h2>
+						<h2> BLOGCONNECT </h2>
 					</div>
                     
                     <div class="col-lg-4 col-md-4 col-sm-5 col-xs-8"> 
 					<!--<div class="col-lg-offset-1 col-lg-4 col-md-offset-1 col-md-5 col-sm-offset-1 col-sm-7 col-xs-12">-->
  						<div id="custom-search-input">
                             <div class="input-group">
-  							  <form method="post" action="search">
-                                <input type="text" class="  search-query form-control" placeholder="Search" name="searchString" />
+                               <form method="post" action="search">
+                                <input type="text" class="  search-query form-control" placeholder="Search" name="searchString"/>
                                		 <span class="input-group-btn">
                                     	<button class="btn btn-danger" type="submit">
                                         <span class=" glyphicon glyphicon-search"></span>
@@ -44,15 +44,9 @@
                             </div>
                         </div>
                      </div>
-                         <div class="col-lg-1 col-md-2 col-sm-2 col-xs-2 username">
-     						Hi ${session.getUsername()}!
-                            
-                        </div> 
-                        
-                          <div id="button" class=" col-lg-offset-1 col-lg-1 col-md-2 col-sm-2 col-xs-2 username">
-     						<form method="post" action="logout"><input type="submit" name="logout" value="Log Out" style="font-size:18px; float:left;" />
-                            </form>
-                        </div>  
+                        <div class="col-lg-2 col-lg-offset-2 col-md-offset-1 col-md-3 col-sm-3 col-xs-4 username">
+     						Hi User !
+                        </div>    
 				</div>
 			</div>
 		</header>
@@ -73,50 +67,43 @@
             </div>
             <div class="navbar-collapse collapse sidebar-navbar-collapse width" style="width:100%;">
               <ul class="nav navbar-nav">
-                  <li><a href="changeSettings" class="icons"><i class="fa fa-cog fa-3x"></i>Settings</a></li>
-                <li><a href="blogCreation" class="icons"><i class="fa fa-pencil fa-3x"></i> Post</a></li>
-                <li><a href="notifications" class="icons"><i class="fa fa-commenting-o fa-3x"></i> Notifs</a></li>
-                <li><a href="friendsView" class="icons"><i class="fa fa-child fa-3x"></i> Friend View</a></li>
-                <li><a href="homepage" class="icons"><i class="fa fa-eye fa-3x"></i> Public View</a></li>
+                <li><a href="setting.html" class="icons"><i class="fa fa-cog fa-3x"></i>Settings</a></li>
+                <li><a href="BlogCreation.html" class="icons"><i class="fa fa-pencil fa-3x"></i> Post</a></li>
+                <li><a href="#" class="icons"><i class="fa fa-bell fa-3x" aria-hidden="true"></i> Notifs</a></li>
+                <li><a href="HomePage.html" class="icons"><i class="fa fa-child fa-3x"></i> Friend View</a></li>
+                <li><a href="HomePage.html" class="icons"><i class="fa fa-eye fa-3x"></i> Public View</a></li>
               </ul>
             </div><!--/.nav-collapse -->
           </div>
         </div>
       </div>     
       <div class="col-md-10.5 col-lg-10 col-sm-10 col-xs-12">
-      
-      <div class="row">
-      <c:forEach var="blog" items="${blogpostList}">
-      <div class="col-lg-6">
-     
-     <div class="gpwrap">
-	<img src="https://lh6.googleusercontent.com/-oDY5lt3j20o/AAAAAAAAAAI/AAAAAAAAAAA/LIaSRRwrnB4/s32-c/photo.jpg" /> <b>${blog.author}</b> 
-	<hr/>
-	<div class="gppost"><p><b>${blog.title}</b></p>
-	
-	<p>${blog.content}</p></div>
-</div>
-     
-     
-    
-     
-      </div> 
-       </c:forEach>
 
+
+        <c:forEach var="user" items="${searchResults}">
+
+       
+      <div class="person col-md-10.5 col-lg-10 col-sm-10 col-xs-12">
+       	<img class="profile-image" src="${user.profilePicture}" />
+        <span class="name">${user.firstName} ${user.lastName}</span>
+
+        <span class="bio"> ${user.bio} </span>
+       <span class="username"> <a href="username/${user.username}">${user.username}</a></span>
       
-      
-      
-      
-      </div> 
+       </div>
+        </c:forEach>
+     
+
+     
      
       </div> 
+
 </div> 
 
 </div>
  
 </body>
-<!--  <script src="js/jquery.collapser.js"></script>-->
-<script src="<c:url value="/resources/js/jquery.collapser.js" />"></script>
-<script src="<c:url value="/resources/js/HomePage.js" />"></script>
-<!-- <script type="text/javascript" src="js/HomePage.js"></script>  -->
+<!--<script src="js/jquery.collapser.js"></script>-->
+<!--<script type="text/javascript" src="js/Search.js"></script> -->
+ <script src="<c:url value="/resources/js/Search.js" />"></script>
 </html>

@@ -31,6 +31,15 @@ public class NotificationDAO {
   jdbcTemplate.update(sql ,count ,notification.getType(),notification.getContent(),notification.getSendername(), notification.getReceivername());		
 		jdbcTemplate.update(sql2, notification.getReceivername(), notification.getNotifid());
 	}
+	
+	public void removeRequest(String userInSession, String friendname)
+	{
+		String sql="DELETE from notification where type='connect' AND ((receivername='"
+				+userInSession+"' AND sendername='"+friendname+"') OR (receivername='"
+				+friendname+"' AND sendername='"+userInSession+"')";
+		
+        jdbcTemplate.update(sql);
+	}
 
  
 	public List<Notification> getUserNotificationList(String username) {

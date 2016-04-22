@@ -12,6 +12,8 @@
     <link href="<c:url value="/resources/css/styles.css" />" rel="stylesheet">  
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
   <script src="https://code.angularjs.org/1.4.5/angular-route.js"></script>
+   
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
    <script src="<c:url value="/resources/js/login.js" />"></script> 
  <!--  <script type="text/javascript" src="js/login.js"></script> -->
    
@@ -39,7 +41,10 @@
   <label for="Password">Password<br>
   <input type="password" name="password" placeholder="Enter password" class="allInput" ng-model="Password" ng-required="true">
  
+  <p id="forgotPassText" style="padding-left:30px; padding-top:15px; color:#FFFFFF; font-size:0.8em; font-weight:300; ">Forgot Password</p>
   </label>
+  
+  
   
    <div id="button">
   <input type="submit" name="login" value="Log In" style="font-size:18px;" ng-disabled="headerForm.emailID.$invalid || headerForm.Password.$invalid" />
@@ -49,6 +54,18 @@
   
   
 </form>
+<form name="forgotPassForm" action="forgotPassword" method="post">
+  <div id="forgotPasswordText" style="float:right; padding-right:20px; display:none;">
+     <input type="email" placeholder="Enter email" class="allInput" style="float:left; padding:1px; font-weight:200;" name="forgotEmail" ng-model="forgotEmail" ng-required="true">
+
+
+ <input type="submit" name="send" value="send" style="float:left; margin-top:0px; margin-left:15px;" ng-disabled="forgotPassForm.forgotEmail.$invalid">
+   <p style="float:left; padding-left:5px; padding-top:5px;" ng-show="forgotPassForm.forgotEmail.$invalid && forgotPassForm.forgotEmail.$touched ">Enter a valid email address.
+ </p>
+     </div>
+
+     </form>
+
 </div>
 
 
@@ -118,8 +135,7 @@
     </div>
     <p>${errorMessage}</p>
 	</form>
- 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
 </main>

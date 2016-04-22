@@ -13,6 +13,7 @@ public class User
 		 private String bio;
 		 private String gender;
 		 private String birthdate;
+		 private String profilePicture;
 	
 		 
 		  
@@ -78,6 +79,14 @@ public class User
 
 		public void setBirthdate(String birthdate) {
 			this.birthdate = birthdate;
+		}
+
+		public String getProfilePicture() {
+			return profilePicture;
+		}
+
+		public void setProfilePicture(String profilePicture) {
+			this.profilePicture = profilePicture;
 		}
 
 

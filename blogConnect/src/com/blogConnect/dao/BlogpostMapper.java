@@ -15,7 +15,7 @@
 	      blogpost.setTitle(rs.getString("title"));
 	      blogpost.setContent(rs.getString("content"));
 	      blogpost.setType(rs.getString("type"));
-
+	      blogpost.setImage(rs.getString("image"));
 	      return blogpost;
 	   }
 	}

@@ -85,20 +85,63 @@ public class UserDAO {
 	}
 	
 	
-	public void updateSettings(User user,String UserName) {
+	public void updateInfoSettings(User user,String UserName) {
 		
 	       String sql = "UPDATE user SET firstName='"+user.getFirstName()+"', lastName='"+user.getLastName()
-	       +"', bio='"+user.getBio()+"', gender='"+user.getGender()+"', birthdate='"+user.getBirthdate()+"'";
+	       +"', bio='"+user.getBio()+"', gender='"+user.getGender()+"', birthdate='"+user.getBirthdate()+
+	       "', profilePicture='"+user.getProfilePicture()+"' WHERE username='"+UserName+"'";
 
 		        jdbcTemplate.update(sql);
 		
 		}
+	
+	public void resetPassword(String newPassword, String username)
+	{
+		String sql="UPDATE user SET password='"+hashPassword(newPassword)+"' WHERE username='"+username+"'";
+		jdbcTemplate.update(sql);
+	}
 
-	 
+	public String friendStatus(String userInSession,String UserName) {
+		
+		
+		String sql1="SELECT Count(*) from friends where (username='"+userInSession+"' AND friendname='"+UserName
+					+"') OR (friendname='"+userInSession+"' AND username='"+UserName+"')";
+		
+		String sql2="Select Count(*) from notification where sendername='"+userInSession
+				+"' AND type='friendrequest' AND receivername='"+UserName+"'";
+		String sql3="Select Count(*) from notification where sendername='"+UserName
+				+"' AND type='friendrequest' AND receivername='"+userInSession+"'";
+		
+		   int checkIfFriend=jdbcTemplate.queryForObject(sql1,int.class);
+		   int checkIfReqSent=jdbcTemplate.queryForObject(sql2,int.class);
+		   int checkIfReqReceived=jdbcTemplate.queryForObject(sql3,int.class);
+		   
+		   if(checkIfFriend>0)
+			   return "Already Connected";
+		   else if(checkIfReqSent>0)
+			   return "Request to connect already sent";
+		   else if(checkIfReqReceived>0)
+			   return "Request to connect received";
+		   else
+			   return "Not connected";
+		   
+		}
 
-	public List<User> getUserList() {
-		// TODO Auto-generated method stub
-		return null;
+	public List<User> getSearchResults(String searchString) {
+		
+		  List<User> resultList = new ArrayList<User>();  
+		  String searchStringLower=searchString.toLowerCase();
+		  
+		  String sql = "select user.* from user inner join userfullname on user.username=userfullname.username "
+				  		+"where user.email='" + searchStringLower
+				  		+"' OR user.username='"+ searchStringLower
+				  		+"' OR lower(firstName)='"+ searchStringLower
+				  		+"' OR lower(lastName)='"+ searchStringLower
+				  		+"' OR userfullname.fullname='"+searchStringLower+"'";
+		  
+		  resultList = jdbcTemplate.query(sql, new UserMapper());  
+		
+		return resultList;
 	}
 
 

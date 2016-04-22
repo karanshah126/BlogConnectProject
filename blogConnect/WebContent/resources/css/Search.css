@@ -1,0 +1,580 @@
+#banner{
+	background-color:#08E1EE;
+	background-size:cover;
+	margin:0;
+	height: 10%;
+	width: 100%;
+	}
+
+
+
+.allInput{
+	color:#010101;
+	
+	}
+	
+#banner h2{
+	color:#fff;
+	float:left;
+	text-align:center;
+	padding: 0px 0 0px 10px;
+	font-family: Lato,appleLogo,sans-serif;
+	}	
+	
+
+
+
+	
+	#mainPart{
+		padding:10%;
+		}
+		
+	
+input {
+ 
+  display: inline-block;
+  font-weight: 100;
+ 
+  font-size: 1rem;
+  font-weight: 100;
+  color: #475B62;
+  border: 1px solid #C5C5C5;
+  border-radius: 4px;
+  outline: 0;
+}
+p {
+  color: #2D3639;
+  font-size:0.8em;
+  font-family: Lato, 'Helvetica Nueue', Helvetica, Arial, sans-serif;
+}
+input.ng-invalid.ng-touched {
+  border: 1px solid #DA3637;
+}
+input.ng-valid.ng-touched {
+  border: 1px solid #509D12;
+}
+	/*@media(max-width:472px)
+	{
+		#banner input[type=button]{
+			margin-top:5px;}
+		}*/
+
+
+
+
+#custom-search-input {
+        margin:0;
+        /*margin-top: 10px;*/
+        padding: 5%;
+		/*position:absolute;*/
+		float:left;
+		/*left:30px;
+		top:5px;*/
+	
+    }
+	
+	
+
+	
+ 
+    #custom-search-input .search-query {
+        padding-right: 3px;
+        padding-right: 4px \9;
+        padding-left: 3px;
+        padding-left: 4px \9;
+        /* IE7-8 doesn't have border-radius, so don't indent the padding */
+ 
+        margin-bottom: 0;
+        -webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+        border-radius: 3px;
+		
+		/*newly added code for input*/
+		display: inline-block;
+  font-weight: 200;
+ 
+  font-size: 1.5rem;
+  
+  color: #475B62;
+  border: 1px solid #C5C5C5;
+  border-radius: 4px;
+  outline: 0;
+		
+    }
+ 
+    #custom-search-input button {
+        border: 0;
+        background: none;
+        /** belows styles are working good */
+        padding: 2px 5px;
+        margin-top: 2px;
+        position: relative;
+        left: -28px;
+        /* IE7-8 doesn't have border-radius, so don't indent the padding */
+        margin-bottom: 0;
+        -webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+        border-radius: 3px;
+        color:grey;
+	}
+ 
+    .search-query:focus + button {
+        z-index: 3;   
+    }
+	
+	.username{
+		color:#FFFFFF;
+		font-weight:600;
+		/*padding:15px;*/
+		float:left;
+		padding:2%;
+		
+			}
+	.setting{
+		width: 50px;
+		height:50px;
+	}
+	.navbar-nav{
+		width:25%;}
+	
+	@media(max-width:768px){
+		.username{
+			padding:3%;}
+		}
+/*		@media (min-width: 200px) and (max-width: 1000px) {
+   .collapse {
+       display: none !important;
+   }
+}*/
+   @media only screen and (min-width: 500px) {
+    .collapse {
+       /* display: block;*/
+	   display:block;
+	   
+    }
+
+    .navbar-header {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+     .collapse {
+        display: none;
+     }
+
+     .navbar-header {
+       display: block;
+	   /*display:none;*/
+     }
+	 
+}
+@media(max-width:500px){
+		.icons{
+			float:relative;}
+		}
+		
+.gpwrap{
+	/*width: 400px;*/
+	width:100%;
+	border: 1px solid #CCC;
+	padding: 15px;
+	
+	margin: 25px 0;
+	box-shadow: 0 0 6px -2px #000;
+	float:left;
+}
+.gpwrap p{
+	margin: 0 0 25px 0;
+	font-size:14px;
+}
+.gppost.hide-class > div{
+	position: relative;
+}
+.gppost.hide-class > div:after{
+	position: absolute;
+	content: '';
+	bottom: 0;
+	left: 0;
+	right: 0;
+	height: 30px;
+	background: linear-gradient( rgba(255,255,255,0), #fff);
+}
+
+
+	
+	#mainPart{
+		padding:10%;
+		}
+		
+	
+input {
+ 
+  display: inline-block;
+  font-weight: 100;
+ /* width: 100%;*/
+  font-size: 1.5rem;
+  font-weight: 200;
+  background-color:#0287C5;
+  color: #FFFFFF;
+  border: 1px solid;
+  border-radius: 4px;
+  outline: 0;
+  /*padding:15px;*/
+  margin: 5px;
+}
+
+textarea {
+	display: inline-block;
+  font-weight: 100;
+  width: 100%;
+  font-size: 2rem;
+  font-weight: 100;
+  color: #475B62;
+  border: 1px solid #C5C5C5;
+  border-radius: 4px;
+  outline: 0;
+  padding:15px;
+  margin: 5px;
+}
+	
+
+p {
+  color: #2D3639;
+  font-size:0.8em;
+  font-family: Lato, 'Helvetica Nueue', Helvetica, Arial, sans-serif;
+}
+input.ng-invalid.ng-touched {
+  border: 1px solid #DA3637;
+}
+input.ng-valid.ng-touched {
+  border: 1px solid #509D12;
+}
+	/*@media(max-width:472px)
+	{
+		#banner input[type=button]{
+			margin-top:5px;}
+		}*/
+
+
+
+
+#custom-search-input {
+        margin:0;
+        /*margin-top: 10px;*/
+        padding: 5%;
+		/*position:absolute;*/
+		float:left;
+		/*left:30px;
+		top:5px;*/
+	
+    }
+	
+	
+
+	
+ 
+    #custom-search-input .search-query {
+        padding-right: 3px;
+        padding-right: 4px \9;
+        padding-left: 3px;
+        padding-left: 4px \9;
+        /* IE7-8 doesn't have border-radius, so don't indent the padding */
+ 
+        margin-bottom: 0;
+        -webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+        border-radius: 3px;
+		
+		/*newly added code for input*/
+		display: inline-block;
+  font-weight: 200;
+ 
+  font-size: 1.5rem;
+  
+  color: #475B62;
+  border: 1px solid #C5C5C5;
+  border-radius: 4px;
+  outline: 0;
+		
+    }
+ 
+    #custom-search-input button {
+        border: 0;
+        background: none;
+        /** belows styles are working good */
+        padding: 2px 5px;
+        margin-top: 2px;
+        position: relative;
+        left: -28px;
+        /* IE7-8 doesn't have border-radius, so don't indent the padding */
+        margin-bottom: 0;
+        -webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+        border-radius: 3px;
+        color:grey;
+	}
+ 
+    .search-query:focus + button {
+        z-index: 3;   
+    }
+	
+	.username{
+		color:#FFFFFF;
+		font-weight:600;
+		/*padding:15px;*/
+		float:left;
+		padding:2%;
+		
+			}
+	.setting{
+		width: 50px;
+		height:50px;
+	}
+	.navbar-nav{
+		width:25%;}
+	
+	@media(max-width:768px){
+		.username{
+			padding:3%;}
+		}
+/*		@media (min-width: 200px) and (max-width: 1000px) {
+   .collapse {
+       display: none !important;
+   }
+}*/
+   @media only screen and (min-width: 500px) {
+    .collapse {
+       /* display: block;*/
+	   display:block;
+	   
+    }
+
+    .navbar-header {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+     .collapse {
+        display: none;
+     }
+
+     .navbar-header {
+       display: block;
+	   /*display:none;*/
+     }
+	 
+}
+@media(max-width:500px){
+		.icons{
+			float:relative;}
+		}
+		
+	.btn {
+    display: inline-block;
+    padding: 12px 24px;
+    margin-bottom: 0;
+	margin:10px;
+    font-size: 1.3rem;
+    font-size: 400;
+    line-height: 140%;
+    text-align: center;
+    text-decoration: none;
+    white-space: nowrap;
+   /* vertical-align: middle;*/
+    cursor: pointer;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    background: #C61C6F;
+    color: white;
+    background-color: #2D8BCF;
+    background-size: 18px 18px;
+    min-width: 28px;
+    min-height: 28px;
+    background-position: center center;
+    background-repeat: no-repeat;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+         -o-user-select: none;
+            user-select: none;
+} 
+
+ .post{
+	float: right;
+
+
+	}
+
+
+	
+	.photo{
+		
+		
+float: right;
+
+		}
+
+#likeBody  {
+  font-family: Lato, 'Helvetica Nueue', Helvetica, Arial, sans-serif;
+  font-size: 1rem;
+  line-height: 160%;
+  color: #555459;
+  line-height: 1.5rem;
+    *zoom: 1;
+}
+
+.card {
+  background: white;
+  width: 100%;
+  height:100%;
+  max-width: 1000px;
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 10px 40px;
+  text-align: center;
+  position: relative;
+  opacity: .95;
+  border-radius: 4px;
+  border: 1px solid #e8e8e8;
+  box-shadow: 0 1px 0 rgba(0,0,0,.25);
+}
+
+a {
+  color: #2D8BCF;
+  font-family: Lato, 'Helvetica Nueue', Helvetica, Arial, sans-serif;
+}
+
+fieldset {
+  margin: 10px 0;
+}
+
+ object, iframe,
+ p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline; }
+  
+  #image_preview {
+    display: none;
+}
+	
+textarea.ng-invalid.ng-touched {
+  border: 1px solid #DA3637;
+}
+textarea.ng-valid.ng-touched {
+  border: 1px solid #509D12;
+}
+
+
+.person{
+	width:100%;
+		border: 1px solid #CCC;
+	padding: 15px;
+	margin: 25px 0;
+	box-shadow: 0 0 6px -2px #000;
+	float:left;
+}
+
+.person:hover{
+	
+		 background-color: #F8F8F8;
+	 cursor: pointer;
+	}
+	
+
+.profile-image{
+	height:100px;
+	widows:100px;
+	float:left;
+	margin:10px;
+}
+
+.name{
+	font-family:Gotham, "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-weight:800;
+	font-size:24px;
+	display:block;
+	position:absolute;
+	/*left:25%;
+	top:20%;*/
+	float:left;
+	left:15%;
+	top:20%;
+}
+.username{
+	
+	font-family:Gotham, "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-weight:800;
+	font-size:24px;
+	display:block;
+	position:absolute;
+	/*left:25%;
+	top:20%;*/
+	float:left;
+	left:35%;
+	/*top:10%;*/
+}
+
+
+.bio{
+	font-family:Gotham, "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-weight:200;
+	font-size:16px;
+	display:block;
+	position:absolute;
+	left:15%;
+	top:50%;
+}
+
+
+#connect{
+	background-color:#2A95D6;
+	font-family:Gotham, "Helvetica Neue", Helvetica, Arial, sans-serif;
+	color:white;
+	font-weight:600;
+	font-size:16px;
+	display:block;
+	position:absolute;
+	left:81%;
+	bottom:15%;
+	  font-size: 1.5rem;
+  font-weight: 200;
+  background-color:#0287C5;
+  color: #FFFFFF;
+  border: 1px solid;
+  border-radius: 4px;
+}
+#message{
+	background-color:#0193D5;
+	/*font-family:Gotham, "Helvetica Neue", Helvetica, Arial, sans-serif;*/
+	color:white;
+	font-weight:600;
+	font-size:16px;
+	display:block;
+	position:absolute;
+	left:90%;
+	bottom:15%;
+	  font-size: 1.5rem;
+  font-weight: 200;
+  background-color:#0287C5;
+  color: #FFFFFF;
+  border: 1px solid;
+  border-radius: 4px;
+}

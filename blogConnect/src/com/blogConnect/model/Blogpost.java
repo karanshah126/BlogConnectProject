@@ -2,12 +2,12 @@ package com.blogConnect.model;
 
 public class Blogpost {
  
-	long postID;
-	String author;
-	String title;
-	String content;
-	String type;
-	
+	private long postID;
+	private String author;
+	private String title;
+	private String content;
+	private String type;
+	private String image;
 	
 	public long getPostID() {
 		return postID;
@@ -38,6 +38,12 @@ public class Blogpost {
 	}
 	public void setType(String type) {
 		this.type = type;
+	}
+	public String getImage() {
+		return image;
+	}
+	public void setImage(String image) {
+		this.image = image;
 	}
 	
 }

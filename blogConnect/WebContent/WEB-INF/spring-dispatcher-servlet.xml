@@ -40,18 +40,26 @@
  
  
  <bean id="userDao" class="com.blogConnect.dao.UserDAO" >  
-		 <property name="dataSource"  ref="dataSource" />	</bean>
- <bean id="userService" class="com.blogConnect.service.UserService" /> 		
+		 <property name="dataSource"  ref="dataSource" />	</bean>	
 
  <bean id="blogpostDao" class="com.blogConnect.dao.BlogpostDAO" >  
 		 <property name="dataSource"  ref="dataSource" />	</bean>
- <bean id="blogpostService" class="com.blogConnect.service.BlogpostService" /> 	
+	
  
  <bean id="notificationDao" class="com.blogConnect.dao.NotificationDAO" >  
 		 <property name="dataSource"  ref="dataSource" />	</bean>
+		 
+		 
+ <bean id="friendDao" class="com.blogConnect.dao.FriendDAO" >  
+		 <property name="dataSource"  ref="dataSource" />	</bean>
+		 
+ <bean id="userService" class="com.blogConnect.service.UserService" /> 	
+ <bean id="blogpostService" class="com.blogConnect.service.BlogpostService" /> 		 
  <bean id="notificationService" class="com.blogConnect.service.NotificationService" /> 	
- 
-
+ <bean id="friendService" class="com.blogConnect.service.FriendService" /> 	
+<bean id="emailService" class="com.blogConnect.service.EmailService" /> 	
+<bean id="searchService" class="com.blogConnect.service.SearchService" /> 	
+<bean id="linkCreationService" class="com.blogConnect.service.LinkCreationService" /> 
  <bean id="uploadservice" class="com.blogConnect.service.UploadService" /> 	
  <!-- declare datasource bean -->  
  

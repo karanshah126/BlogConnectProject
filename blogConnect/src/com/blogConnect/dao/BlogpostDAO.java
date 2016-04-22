@@ -23,11 +23,11 @@ public class BlogpostDAO {
 
 	public void insertBlogpost(Blogpost blogpost) {
 	
-       String sql = "INSERT INTO blogpost (author, title, content, type)"
-	                    + " VALUES (?, ?, ?, ?)";
+       String sql = "INSERT INTO blogpost (author, title, content, type, image)"
+	                    + " VALUES (?, ?, ?, ?, ?)";
        
 				jdbcTemplate.update(sql, blogpost.getAuthor(), blogpost.getTitle(), 
-						blogpost.getContent(), blogpost.getType() );		
+						blogpost.getContent(), blogpost.getType(), blogpost.getImage() );		
 		
 	}
 

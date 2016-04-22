@@ -42,7 +42,7 @@
                         </div>
                      </div>
                         <div class="col-lg-2 col-lg-offset-2 col-md-offset-1 col-md-3 col-sm-3 col-xs-4 username">
-     						Hi User !
+     						Hi ${session.getUsername()}!
                         </div>
 				</div>
 			</div>
@@ -64,11 +64,11 @@
             </div>
             <div class="navbar-collapse collapse sidebar-navbar-collapse width" style="width:100%;">
               <ul class="nav navbar-nav">
-                <li><a href="#" class="icons"><i class="fa fa-cog fa-3x"></i>Settings</a></li>
-                <li><a href="#" class="icons"><i class="fa fa-pencil fa-3x"></i> Post</a></li>
-                <li><a href="#" class="icons"><i class="fa fa-commenting-o fa-3x"></i> Chat</a></li>
-                <li><a href="#" class="icons"><i class="fa fa-child fa-3x"></i> Friend View</a></li>
-                <li><a href="#" class="icons"><i class="fa fa-eye fa-3x"></i> Public View</a></li>
+               <li><a href="changeSettings" class="icons"><i class="fa fa-cog fa-3x"></i>Settings</a></li>
+                <li><a href="blogCreation" class="icons"><i class="fa fa-pencil fa-3x"></i> Post</a></li>
+                <li><a href="notifications" class="icons"><i class="fa fa-commenting-o fa-3x"></i> Notifs</a></li>
+                <li><a href="friendsView" class="icons"><i class="fa fa-child fa-3x"></i> Friend View</a></li>
+                <li><a href="homepage" class="icons"><i class="fa fa-eye fa-3x"></i> Public View</a></li>
               </ul>
             </div><!--/.nav-collapse -->
           </div>
@@ -80,15 +80,15 @@
       <div id="likeBody">
 <div class="page">
   <section class="card register" ng-app="blogCreationPage">
-  <div class="blogCreationHeader">
+<!--   <div class="blogCreationHeader">
 
  <img src="https://lh6.googleusercontent.com/-oDY5lt3j20o/AAAAAAAAAAI/AAAAAAAAAAA/LIaSRRwrnB4/s32-c/photo.jpg" style="float:left; border-radius:4px; height:100px; width:100px;" />
- <!-- <div style="clear:both"></div> -->
+ <div style="clear:both"></div>
   <h2 style="padding-bottom:20px; float: inherit; padding:20px;">User status </h2>
   <div style="clear:both"></div>
   </div>
-
-  <form name="myform" action="createBlogpost" method="post" novalidate>
+ -->
+  <form name="myform" action="createBlogpost" method="POST" enctype="multipart/form-data" novalidate>
 
 <!--   <div class="textintro">
       <h1>Blog Creation</h1>
@@ -114,7 +114,7 @@
 
     <!-- newly added code for image --->
 
-    <input type="file" name="image" id="image" class="image" style="display:none !important;"/>
+    <input type="file" name="upload" id="image" class="image" style="display:none !important;"/>
 
 
 
@@ -126,19 +126,33 @@
 
     </fieldset>
 
-    <button type="button" id="public" class="btn public" onClick="toggleText()">Public</button>
+<div id="postPrivacy">
+
+
+        <label for="private" style="float:left; padding:5px; font-weight:400; color:#777777; font-size:1.5em;">Private
+        <input type="radio" name="type" id="private" value="private" /> </label>
+ <label for="public" style="float:left; padding:5px; font-weight:400; color:#777777; font-size:1.5em;">Public
+        <input type="radio" name="type" id="pubs" value="public" /> </label>
+
+     
+        </div>
+
+    <!-- <button type="button" id="public" class="btn public" onClick="toggleText()">Public</button> -->
     <button type="submit" class="btn post" id="postButton" ng-disabled="myform.title.$invalid">Post</button>
     <button type="submit" id="image123" class="btn photo">Photo (Optional)</button>
+    
+    <p>${successMessage}</p>
       <div style="clear:both"></div>
 			<script>
         CKEDITOR.replace('content', {fileBrowserImageUploadUrl:'post/upload'});
       </script>
   </form>
-  <form action="post/upload" method="POST" enctype="multipart/form-data">
+ <!--  <form action="post/upload" method="POST" enctype="multipart/form-data">
       <input type="file" name="upload" >
       <input type="submit">
      </form>
-</section>
+ -->
+ </section>
 </div>
 </div>
 

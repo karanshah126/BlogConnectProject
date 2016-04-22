@@ -39,16 +39,18 @@ public class UserService {
 		  return userDAO.getUser(emailORUsername);  
 		 }
 	 
-	 public String updateSettings(User user, String username) { 
+	 public String updateInfoSettings(User user, String username) { 
 
-		  userDAO.updateSettings(user,username);  
+		  userDAO.updateInfoSettings(user,username);  
 		  return "Information Updated";
 		 } 
 	 
-	 public List<User> getUserList() {  
-	  return userDAO.getUserList();  
-	 }  
-
+	 public void resetPassword(String password, String userInSession)
+	 {
+		 userDAO.resetPassword(password, userInSession);
+		 System.out.println("In User service: password reset");
+	 }
+	 
 	 public String authenticateLogin(User user){
 		 return userDAO.authenticateLogin(user);
 	 }

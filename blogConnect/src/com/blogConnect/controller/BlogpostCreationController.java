@@ -37,7 +37,7 @@ public class BlogpostCreationController {
 //	@Autowired
 //	private Upload upload;
 
-	@RequestMapping(value = "/createBlogpost", method = RequestMethod.POST)
+/*	@RequestMapping(value = "/createBlogpost", method = RequestMethod.POST)
 	public ModelAndView createBlogpost(@ModelAttribute Blogpost blogpost,  HttpSession session){ 
 		
 		UserSession userSession=(UserSession) session.getAttribute("session");
@@ -49,25 +49,29 @@ public class BlogpostCreationController {
 		String result = blogpostService.submitBlogpost(blogpost); 
 		System.out.println(result);
 		
-/*		ArrayList<Blogpost> publicblogpostlist=new ArrayList<Blogpost>();
+		ArrayList<Blogpost> publicblogpostlist=new ArrayList<Blogpost>();
 		publicblogpostlist=(ArrayList<Blogpost>) blogpostService.getPublicBlogpostList();
 		
 		for (Blogpost item : publicblogpostlist) {   
 		    System.out.println(item.getAuthor() + " " + item.getContent());
-		}*/
+		}
 	
 			ModelAndView modelAndView = new ModelAndView("BlogCreation");
 			modelAndView.addObject("successMessage", result);
 			return modelAndView;
 		}
-
+*/
 	
-	@RequestMapping(value = "/post/upload", method = RequestMethod.POST)//, headers="content-type=multipart/form-data")
-	//public void uploadImage(@RequestParam("upload") MultipartFile file ){ 
-	public void uploadImage(HttpServletRequest request, HttpServletResponse response){	
-	System.out.println("hello here");
+	@RequestMapping(value = "/createBlogpost", method = RequestMethod.POST)
+	public ModelAndView createBlogpost(HttpServletRequest request,@ModelAttribute Blogpost blogpost,  HttpSession session ){	
+	
 	MultipartHttpServletRequest multipartRequest = (MultipartHttpServletRequest) request;
 	MultipartFile file = multipartRequest.getFile("upload");
+	String imageURL="null";
+	
+	
+	if(!file.isEmpty())
+	{
 		File convFile =new File(file.getOriginalFilename());
 		try {
 			convFile.createNewFile();
@@ -76,30 +80,36 @@ public class BlogpostCreationController {
 			fos.close();
 		}
 		 catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
 		Upload upload=new Upload();
 		upload.image=convFile;
 		
-		String url="";
-		UiCallback ub = new UiCallback();
-		//url = uploadService.Execute(upload, ub);
-		 uploadService.Execute(upload, new UiCallback());
-		 
-		System.out.println("URL: "+ uploadService.responseResult);
+		imageURL= uploadService.Execute(upload, new UiCallback());
 	}
 	
-	public static String getUrl(String url){
-		return url;
+		System.out.println("URL: "+ imageURL); 
+		
+		
+		UserSession userSession=(UserSession) session.getAttribute("session");
+		blogpost.setAuthor(userSession.getUsername());
+		blogpost.setImage(imageURL);
+		
+		
+		System.out.println(blogpost.getAuthor()+"  "+blogpost.getTitle()+"  "+blogpost.getContent()+"  "+blogpost.getType()+"  "+blogpost.getImage());
+		
+		String result = blogpostService.submitBlogpost(blogpost); 
+		System.out.println(result);	
+		
+		ModelAndView modelAndView = new ModelAndView("BlogCreation");
+		modelAndView.addObject("successMessage", result);
+		return modelAndView;
+		
 	}
 	
-	  @RequestMapping("/back")
-	public ModelAndView redirectToHome() {
-	       System.out.println("TO HOME");
-	        return new ModelAndView("HomePage"); 
-	    }
+	
+
 		
 	}
 	

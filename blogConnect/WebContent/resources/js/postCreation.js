@@ -4,19 +4,6 @@ var blogCreationPage = angular.module('blogCreationPage', []);
 
 window.onload= function(){
 
-         var el = document.getElementById("public").onclick= function togglePost(){
-
-                 if (this.textContent == "Public")
-   {
-       this.textContent = "Private";
-           this.value = "Private";
-   }
-   else
-   {
-     this.textContent = "Public";
-         this.value = "Private";
-   }
-   };
 
 
   var editor = CKEDITOR.instances.content;

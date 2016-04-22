@@ -28,4 +28,7 @@ public class BlogpostService {
 		  return blogpostDAO.getPrivateBlogpostList(sessionUsername); 
 		 } 
 	
+		public List<Blogpost> getUserBlogpostList(String username,String userInSession){
+			return getUserBlogpostList(username, userInSession);
+		}
 }

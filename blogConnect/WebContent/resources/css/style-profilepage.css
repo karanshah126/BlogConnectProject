@@ -5,22 +5,12 @@
 	height: 10%;
 	width: 100%;
 	}
-	
-.blogCreationHeader{
-	width:100%;
-	background-color:#F8F8F8;
-	height:10%;
-	background-size:cover;
-	border-radius:4px;
-	margin:5px;
-	}
 
 
 
 .allInput{
-	color:#777777;
-	font-size:16px;
-	font-weight:400;	
+	color:#010101;
+	
 	}
 	
 #banner h2{
@@ -42,38 +32,19 @@
 	
 input {
  
-  display: block;
+  display: inline-block;
   font-weight: 100;
-  width: 100%;
+ 
   font-size: 1rem;
   font-weight: 100;
   color: #475B62;
   border: 1px solid #C5C5C5;
   border-radius: 4px;
   outline: 0;
-  padding:5px;
-  margin: 5px;
 }
-
-
-textarea {
-	display: inline-block;
-  font-weight: 100;
-  width: 100%;
-  font-size: 2rem;
-  font-weight: 100;
-  color: #475B62;
-  border: 1px solid #C5C5C5;
-  border-radius: 4px;
-  outline: 0;
-  padding:15px;
-  margin: 15px;
-}
-	
-
 p {
-  color: #777777;
-  font-size:0.5em;
+  color: #2D3639;
+  font-size:0.8em;
   font-family: Lato, 'Helvetica Nueue', Helvetica, Arial, sans-serif;
 }
 input.ng-invalid.ng-touched {
@@ -203,9 +174,204 @@ input.ng-valid.ng-touched {
 			float:relative;}
 		}
 		
+.gpwrap{
+	/*width: 400px;*/
+	width:100%;
+	border: 1px solid #CCC;
+	padding: 15px;
+	
+	margin: 25px 0;
+	box-shadow: 0 0 6px -2px #000;
+	float:left;
+}
+.gpwrap p{
+	margin: 0 0 25px 0;
+	font-size:14px;
+}
+.gppost.hide-class > div{
+	position: relative;
+}
+.gppost.hide-class > div:after{
+	position: absolute;
+	content: '';
+	bottom: 0;
+	left: 0;
+	right: 0;
+	height: 30px;
+	background: linear-gradient( rgba(255,255,255,0), #fff);
+}
+
+
+	
+	#mainPart{
+		padding:10%;
+		}
 		
-	#uniqueButton{
-	.btn {
+	
+input {
+ 
+  display: inline-block;
+  font-weight: 100;
+ /* width: 100%;*/
+  font-size: 1.5rem;
+  font-weight: 200;
+  background-color:#0287C5;
+  color: #FFFFFF;
+  border: 1px solid;
+  border-radius: 4px;
+  outline: 0;
+  /*padding:15px;*/
+  margin: 5px;
+}
+
+textarea {
+	display: inline-block;
+  font-weight: 100;
+  width: 100%;
+  font-size: 2rem;
+  font-weight: 100;
+  color: #475B62;
+  border: 1px solid #C5C5C5;
+  border-radius: 4px;
+  outline: 0;
+  padding:15px;
+  margin: 5px;
+}
+	
+
+p {
+  color: #2D3639;
+  font-size:0.8em;
+  font-family: Lato, 'Helvetica Nueue', Helvetica, Arial, sans-serif;
+}
+input.ng-invalid.ng-touched {
+  border: 1px solid #DA3637;
+}
+input.ng-valid.ng-touched {
+  border: 1px solid #509D12;
+}
+	/*@media(max-width:472px)
+	{
+		#banner input[type=button]{
+			margin-top:5px;}
+		}*/
+
+
+
+
+#custom-search-input {
+        margin:0;
+        /*margin-top: 10px;*/
+        padding: 5%;
+		/*position:absolute;*/
+		float:left;
+		/*left:30px;
+		top:5px;*/
+	
+    }
+	
+	
+
+	
+ 
+    #custom-search-input .search-query {
+        padding-right: 3px;
+        padding-right: 4px \9;
+        padding-left: 3px;
+        padding-left: 4px \9;
+        /* IE7-8 doesn't have border-radius, so don't indent the padding */
+ 
+        margin-bottom: 0;
+        -webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+        border-radius: 3px;
+		
+		/*newly added code for input*/
+		display: inline-block;
+  font-weight: 200;
+ 
+  font-size: 1.5rem;
+  
+  color: #475B62;
+  border: 1px solid #C5C5C5;
+  border-radius: 4px;
+  outline: 0;
+		
+    }
+ 
+    #custom-search-input button {
+        border: 0;
+        background: none;
+        /** belows styles are working good */
+        padding: 2px 5px;
+        margin-top: 2px;
+        position: relative;
+        left: -28px;
+        /* IE7-8 doesn't have border-radius, so don't indent the padding */
+        margin-bottom: 0;
+        -webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+        border-radius: 3px;
+        color:grey;
+	}
+ 
+    .search-query:focus + button {
+        z-index: 3;   
+    }
+	
+	.username{
+		color:#FFFFFF;
+		font-weight:600;
+		/*padding:15px;*/
+		float:left;
+		padding:2%;
+		
+			}
+	.setting{
+		width: 50px;
+		height:50px;
+	}
+	.navbar-nav{
+		width:25%;}
+	
+	@media(max-width:768px){
+		.username{
+			padding:3%;}
+		}
+/*		@media (min-width: 200px) and (max-width: 1000px) {
+   .collapse {
+       display: none !important;
+   }
+}*/
+   @media only screen and (min-width: 500px) {
+    .collapse {
+       /* display: block;*/
+	   display:block;
+	   
+    }
+
+    .navbar-header {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+     .collapse {
+        display: none;
+     }
+
+     .navbar-header {
+       display: block;
+	   /*display:none;*/
+     }
+	 
+}
+@media(max-width:500px){
+		.icons{
+			float:relative;}
+		}
+		
+.btn {
     display: inline-block;
    /* padding: 12px 24px;*/
     margin-bottom: 0;
@@ -234,46 +400,6 @@ input.ng-valid.ng-touched {
          -o-user-select: none;
             user-select: none;
 }
-	
-	
-	
-	}
-		
-	.btn {
-   /* display: inline-block;
-    padding: 12px 24px;
-    margin-bottom: 0;
-	margin:10px;
-    font-size: 1.3rem;
-    font-size: 400;
-    line-height: 140%;
-    text-align: center;
-    text-decoration: none;
-    white-space: nowrap;*/
-   /* vertical-align: middle;*/
-  /*  cursor: pointer;
-    border: 1px solid transparent;
-    border-radius: 4px;
-    background: #C61C6F;
-    color: white;
-    background-color: #2D8BCF;
-    background-size: 18px 18px;
-    min-width: 28px;
-    min-height: 28px;
-    background-position: center center;
-    background-repeat: no-repeat;
-    -webkit-user-select: none;
-       -moz-user-select: none;
-        -ms-user-select: none;
-         -o-user-select: none;
-            user-select: none;*/
-			
-				background-color:#1289D1;
-	color:white;
-	font-size:14px; 
-	font-weight:600;
-	/*width:10%;*/
-} 
 
  .post{
 	float: right;
@@ -281,10 +407,7 @@ input.ng-valid.ng-touched {
 
 	}
 
-.public{
-	float: left;
 
-}
 	
 	.photo{
 		
@@ -360,57 +483,78 @@ textarea.ng-valid.ng-touched {
 }
 
 
-.secondnav{
-		position:absolute;
-		top:50px;
-		left:40px;
-		list-style:none;
-		line-height:60px;
-	}
+.person{
+	width:100%;
+		border: 1px solid #CCC;
+	padding: 15px;
+	margin: 25px 0;
+	box-shadow: 0 0 6px -2px #000;
+	float:left;
+}
 	
-.signupbutton{
-	background-color:#0076B9;
+
+#profile-image{
+	height:100px;
+	widows:100px;
+	float:left;
+	margin:10px;
+}
+
+#name{
+	font-family:Gotham, "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-weight:800;
+	font-size:24px;
+	display:block;
+	position:absolute;
+	/*left:25%;
+	top:20%;*/
+	float:left;
+	left:15%;
+	top:20%;
+}
+
+#bio{
+	font-family:Gotham, "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-weight:200;
+	font-size:16px;
+	display:block;
+	position:absolute;
+	left:15%;
+	top:50%;
+}
+
+
+#connect{
+	background-color:#2A95D6;
+	font-family:Gotham, "Helvetica Neue", Helvetica, Arial, sans-serif;
 	color:white;
-	font-size:14px; 
 	font-weight:600;
-	/*width:10%;*/
+	font-size:16px;
+	display:block;
+	position:absolute;
+	left:75%;
+	bottom:12%;
+	  font-size: 1.5rem;
+  font-weight: 200;
+  background-color:#0287C5;
+  color: #FFFFFF;
+  border: 1px solid;
+  border-radius: 4px;
 }
-
-
- label[for=firstName]
-{
-	padding: 10px;
-	font-family: Lato,appleLogo,sans-serif;
+.message{
+	background-color:#0193D5;
+	/*font-family:Gotham, "Helvetica Neue", Helvetica, Arial, sans-serif;*/
+	color:white;
 	font-weight:600;
-}
-
- label[for=profilePicture]
-{
-	padding: 10px;
-	font-family: Lato,appleLogo,sans-serif;
-	font-weight:600;
-}
-
-
-
- label[for=lastName]
-{
-	padding:10px;
-	font-family: Lato,appleLogo,sans-serif;
-	font-weight:600;
-}
-
- label[for=datebirth]
-{
-	padding:10px;
-	font-family: Lato,appleLogo,sans-serif;
-	font-weight:600;
-	position:relative;
-}
-
- label[for=comment]
-{
-	padding:5px;
-	font-family: Lato,appleLogo,sans-serif;
-	font-weight:600;
+	font-size:16px;
+	display:block;
+	position:absolute;
+	left:90%;
+	bottom:15%;
+	  font-size: 1.5rem;
+  font-weight: 200;
+  background-color:#0287C5;
+  color: #FFFFFF;
+  border: 1px solid;
+  border-radius: 4px;
 }

@@ -53,6 +53,7 @@ public class LoginController {
 			
 			User loginedUser = userService.getUser(user.getEmail());
 			usersession.setUsername(loginedUser.getUsername());
+			usersession.setEmail(loginedUser.getEmail());
 			usersession.setIsLogin(true);
 			
 			modelAndView.addObject("session", usersession);

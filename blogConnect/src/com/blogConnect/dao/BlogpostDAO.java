@@ -5,14 +5,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.sql.DataSource;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 import com.blogConnect.model.Blogpost;
+import com.blogConnect.model.User;
 
 public class BlogpostDAO {
 
 	private JdbcTemplate jdbcTemplate;
-	
+	@Autowired
+	private UserDAO userDAO;
 	DataSource dataSource;   
 	
 	public void setDataSource(DataSource dataSource) {
@@ -23,25 +27,18 @@ public class BlogpostDAO {
 
 	public void insertBlogpost(Blogpost blogpost) {
 	
-       String sql = "INSERT INTO blogpost (author, title, content, type, image)"
-	                    + " VALUES (?, ?, ?, ?, ?)";
+       String sql = "INSERT INTO blogpost (author, title, content, type, image, authorimage)"
+	                    + " VALUES (?, ?, ?, ?, ?, ?)";
        
+       			User author=userDAO.getUser(blogpost.getAuthor());
 				jdbcTemplate.update(sql, blogpost.getAuthor(), blogpost.getTitle(), 
-						blogpost.getContent(), blogpost.getType(), blogpost.getImage() );		
+						blogpost.getContent(), blogpost.getType(), blogpost.getImage(), author.getProfilePicture() );		
 		
 	}
 
  
 	public List<Blogpost> getPublicBlogpostList() {
-		
-	/*	Blogpost nullPost=new Blogpost();  
-		nullPost.setAuthor(null);
-		nullPost.setContent(null);
-		nullPost.setPostID(0);
-		nullPost.setTitle(null);
-		nullPost.setType(null);
-		*/
-		
+
 		
 		  List<Blogpost> blogpostList = new ArrayList<Blogpost>();  
 		  String sql = "select * from blogpost where type='public' ORDER BY postID DESC";  

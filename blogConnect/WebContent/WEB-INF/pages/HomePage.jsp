@@ -29,20 +29,25 @@
 						<h2> <a href="homepage"> BLOGCONNECT</a> </h2>
 					</div>
                     
-                    <div class="col-lg-4 col-md-4 col-sm-5 col-xs-8"> 
+               <div class="col-lg-4 col-md-4 col-sm-5 col-xs-8"> 
 					<!--<div class="col-lg-offset-1 col-lg-4 col-md-offset-1 col-md-5 col-sm-offset-1 col-sm-7 col-xs-12">-->
- 						<div id="custom-search-input">
-                            <div class="input-group">
-  							  <form method="post" action="search">
-                                <input type="text" class="  search-query form-control" placeholder="Search" name="searchString" />
-                               		 <span class="input-group-btn">
-                                    	<button class="btn btn-danger" type="submit">
+ 						<form method="post" action="search">
+                        <div id="custom-search-input">
+                          <!--  <div class="input-group">-->
+                                
+                                <input type="text" class="  search-query form-control" placeholder="Search" name="searchString"  />
+                               		<!-- <span class="input-group-btn">-->
+                                     
+                                    	
+                                        
+                           			   <!-- </span>-->
+                                       
+                         <!--   </div>-->
+                        </div>
+                        <button class="btn btn-danger" type="submit" style="float:left; margin-top:30px; height:20px; width:10px;">
                                         <span class=" glyphicon glyphicon-search"></span>
                                    		</button>
-                           			    </span>
-                                    </form>
-                            </div>
-                        </div>
+                                        </form>
                      </div>
                          <div class="col-lg-1 col-md-2 col-sm-2 col-xs-2 username">
      						Hi ${session.getUsername()}!
@@ -90,11 +95,13 @@
       <div class="col-lg-6">
      
      <div class="gpwrap">
-	<img src="https://lh6.googleusercontent.com/-oDY5lt3j20o/AAAAAAAAAAI/AAAAAAAAAAA/LIaSRRwrnB4/s32-c/photo.jpg" /> <b>${blog.author}</b> 
-	<hr/>
-	<div class="gppost"><p><b>${blog.title}</b></p>
+	<img src="${blog.authorimage}" height="30" width="30" /> <b>${blog.author}</b> 
+	<hr/> <p><b>${blog.title}</b></p>
+	<div class="gppost">
 	
-	<p>${blog.content}</p></div>
+	<p>${blog.content}</p>
+	<p><img src="${blog.image}" height="200" width="200"/></p>
+	</div>
 </div>
      
      

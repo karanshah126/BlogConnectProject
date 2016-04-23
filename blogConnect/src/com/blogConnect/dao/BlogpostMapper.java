@@ -16,6 +16,7 @@
 	      blogpost.setContent(rs.getString("content"));
 	      blogpost.setType(rs.getString("type"));
 	      blogpost.setImage(rs.getString("image"));
+	      blogpost.setAuthorimage(rs.getString("authorimage"));
 	      return blogpost;
 	   }
 	}

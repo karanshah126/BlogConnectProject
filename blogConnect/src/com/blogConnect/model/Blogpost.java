@@ -8,6 +8,7 @@ public class Blogpost {
 	private String content;
 	private String type;
 	private String image;
+	private String authorimage;
 	
 	public long getPostID() {
 		return postID;
@@ -44,6 +45,12 @@ public class Blogpost {
 	}
 	public void setImage(String image) {
 		this.image = image;
+	}
+	public String getAuthorimage() {
+		return authorimage;
+	}
+	public void setAuthorimage(String authorimage) {
+		this.authorimage = authorimage;
 	}
 	
 }

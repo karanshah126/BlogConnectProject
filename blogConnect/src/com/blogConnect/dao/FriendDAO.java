@@ -22,8 +22,8 @@ public class FriendDAO {
 
 	public void addFriend(String userInSession, String friendname ) {
 	
-       String sql = "INSERT INTO friend ('"+userInSession+"','"+friendname+"')";
-       String sql2 = "INSERT INTO friend ('"+friendname+"','"+userInSession+"')";
+       String sql = "INSERT INTO friends ('"+userInSession+"','"+friendname+"')";
+       String sql2 = "INSERT INTO friends ('"+friendname+"','"+userInSession+"')";
        
 	        jdbcTemplate.update(sql);
 	        jdbcTemplate.update(sql2);
@@ -31,6 +31,18 @@ public class FriendDAO {
 	        notificationDAO.removeRequest(userInSession, friendname);
 	        
 	}
+	
+	public void removeFriend(String userInSession, String friendname ) {
+		
+	       String sql = "DELETE from friends where username='"+userInSession+"' AND friendname='"+friendname+"'";
+	       String sql2 = "DELETE from friends where friendname='"+userInSession+"' AND username='"+friendname+"'";
+	       
+		        jdbcTemplate.update(sql);
+		        jdbcTemplate.update(sql2);
+		        
+		        notificationDAO.removeRequest(userInSession, friendname);
+		        
+		}
 	
 	
 }

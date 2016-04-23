@@ -34,7 +34,7 @@ public class SearchController {
         return modelAndView; 
     }
     
-    @RequestMapping(value = "/username/{username}")
+    @RequestMapping(value = "/{username}")
 	public ModelAndView goToUserPage(@PathVariable("username") String username,HttpSession session) {
    
   
@@ -42,6 +42,7 @@ public class SearchController {
     	ModelAndView modelAndView = new ModelAndView("UserPage");
     	  modelAndView.addObject("userDetails",userService.getUser(username));
     	  modelAndView.addObject("blogpostList",blogpostService.getUserBlogpostList(username, userSession.getUsername()));
+    	  modelAndView.addObject("connectStatus", userService.friendStatus(userSession.getUsername(), username));
         return modelAndView; 
     }
     

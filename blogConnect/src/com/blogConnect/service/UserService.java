@@ -55,7 +55,9 @@ public class UserService {
 		 return userDAO.authenticateLogin(user);
 	 }
 	 
- 
-	
+	 public String friendStatus(String userInSession,String UserName)
+	 {
+		 return userDAO.friendStatus(userInSession, UserName);
+	 }
 
 }

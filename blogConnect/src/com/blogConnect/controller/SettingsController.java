@@ -39,12 +39,16 @@ public class SettingsController {
 		
 		 UserSession userSession=(UserSession) session.getAttribute("session");
 		
-
+		 User currentUser=userService.getUser(userSession.getUsername());
 			MultipartHttpServletRequest multipartRequest = (MultipartHttpServletRequest) request;
 			MultipartFile file = multipartRequest.getFile("upload");
-			String imageURL="null";
+			String imageURL=currentUser.getProfilePicture();
+			
+			String newbio=request.getParameter("bio");
+			user.setBio(newbio);
 			
 			
+			System.out.println("USER NEW BIO: "+newbio);
 			if(!file.isEmpty())
 			{
 				File convFile =new File(file.getOriginalFilename());
@@ -64,32 +68,54 @@ public class SettingsController {
 				imageURL= uploadService.Execute(upload, new UiCallback());
 				System.out.println("URL: "+ imageURL); 
 				
-				 user.setProfilePicture(imageURL);
+				
 				
 			}
 			
-				
+			 user.setProfilePicture(imageURL);
 		
 		String result = userService.updateInfoSettings(user,userSession.getUsername()); 
 		System.out.println(result);
 	
 			ModelAndView modelAndView = new ModelAndView("Settings");
 		       modelAndView.addObject("userDetails",userService.getUser(userSession.getUsername()));
+		       modelAndView.addObject("logMessage", "Updated");
 			return modelAndView;
 		}
 
 
 	
-	@RequestMapping(value = "/", method = RequestMethod.POST )
+	@RequestMapping(value = "/updatePassword", method = RequestMethod.POST )
 	public ModelAndView setNewPassword(HttpServletRequest request, HttpSession session) {
+		
+		String oldPassword=request.getParameter("oldPassword");
 		String newPassword=	request.getParameter("newPassword");
-		System.out.println("NEW PASSWORD:"+newPassword);
+
 		UserSession userSession=(UserSession) session.getAttribute("session");
 		
-		userService.resetPassword(newPassword, userSession.getUsername());
-		 ModelAndView modelAndView = new ModelAndView("redirect:/back");
-	     
-	        return modelAndView; 
+		User user=new User();
+		user.setEmail(userSession.getEmail());
+	
+		user.setPassword(oldPassword);
+		String result="";
+	
+		if(!userService.authenticateLogin(user).equals("success"))
+		{
+			result="Wrong old password";
+		}	
+		
+		else
+		{
+			System.out.println("NEW PASSWORD:"+newPassword);
+			userService.resetPassword(newPassword, userSession.getUsername());
+			result="Password successfully reset.";
+		}
+		
+		ModelAndView modelAndView = new ModelAndView("Settings");
+	       modelAndView.addObject("userDetails",userService.getUser(userSession.getUsername()));
+	       modelAndView.addObject("logMessage", result);
+		return modelAndView;
+		
 	}
 	
 		

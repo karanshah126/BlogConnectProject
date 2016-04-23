@@ -28,18 +28,25 @@
 							<h2> <a href="homepage"> BLOGCONNECT</a> </h2>
 					</div>
 
-                    <div class="col-lg-4 col-md-4 col-sm-5 col-xs-8">
+            <div class="col-lg-4 col-md-4 col-sm-5 col-xs-8"> 
 					<!--<div class="col-lg-offset-1 col-lg-4 col-md-offset-1 col-md-5 col-sm-offset-1 col-sm-7 col-xs-12">-->
- 						<div id="custom-search-input">
-                            <div class="input-group">
-                                <input type="text" class="  search-query form-control" placeholder="Search" />
-                               		 <span class="input-group-btn">
-                                    	<button class="btn btn-danger" type="button">
+ 						<form method="post" action="search">
+                        <div id="custom-search-input">
+                          <!--  <div class="input-group">-->
+                                
+                                <input type="text" class="  search-query form-control" placeholder="Search" name="searchString"  />
+                               		<!-- <span class="input-group-btn">-->
+                                     
+                                    	
+                                        
+                           			   <!-- </span>-->
+                                       
+                         <!--   </div>-->
+                        </div>
+                        <button class="btn btn-danger" type="submit" style="float:left; margin-top:30px; height:20px; width:10px;">
                                         <span class=" glyphicon glyphicon-search"></span>
                                    		</button>
-                           			    </span>
-                            </div>
-                        </div>
+                                        </form>
                      </div>
                         <div class="col-lg-2 col-lg-offset-2 col-md-offset-1 col-md-3 col-sm-3 col-xs-4 username">
      						Hi ${session.getUsername()}!

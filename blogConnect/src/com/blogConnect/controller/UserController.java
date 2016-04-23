@@ -1,8 +1,10 @@
 package com.blogConnect.controller;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -18,6 +20,7 @@ import com.blogConnect.service.FriendService;
 import com.blogConnect.service.NotificationService;
 import com.blogConnect.service.UserService;
 
+@Controller
 public class UserController {
 
 	@Autowired
@@ -40,7 +43,8 @@ public class UserController {
 		 
     	ModelAndView modelAndView = new ModelAndView("UserPage","notifyMessage", result);
   	  modelAndView.addObject("userDetails",userService.getUser(notification.getReceivername()));
-  	  modelAndView.addObject("blogpostList",blogpostService.getUserBlogpostList(notification.getReceivername(), userSession.getUsername()));
+  	 modelAndView.addObject("connectStatus", userService.friendStatus(userSession.getUsername(), notification.getReceivername()));
+ 	  modelAndView.addObject("blogpostList",blogpostService.getUserBlogpostList(notification.getReceivername(), userSession.getUsername()));
 			return modelAndView;
 		}
 	
@@ -56,22 +60,45 @@ public class UserController {
 		 
     	ModelAndView modelAndView = new ModelAndView("UserPage","notifyMessage", result);
   	  modelAndView.addObject("userDetails",userService.getUser(notification.getReceivername()));
+	  modelAndView.addObject("connectStatus", userService.friendStatus(userSession.getUsername(), notification.getReceivername()));
   	  modelAndView.addObject("blogpostList",blogpostService.getUserBlogpostList(notification.getReceivername(), userSession.getUsername()));
 			return modelAndView;
 		}
 	
-	@RequestMapping(value = "/respondToRequest", method = RequestMethod.GET)
-	public ModelAndView respondFriendRequest(@RequestParam("username") String username,  HttpSession session){ 
+	@RequestMapping(value = "/respondToRequest", method = RequestMethod.POST)
+	public ModelAndView respondFriendRequest(HttpServletRequest request,  HttpSession session){ 
 		
 		
 		UserSession userSession=(UserSession) session.getAttribute("session");
+		String username=request.getParameter("username");
 		friendService.connectUser(userSession.getUsername(),username);
 		 	
 		String result= "This user is now connected with you";
 		 
     	ModelAndView modelAndView = new ModelAndView("UserPage","notifyMessage", result);
   	  modelAndView.addObject("userDetails",userService.getUser(username));
+	  modelAndView.addObject("connectStatus", userService.friendStatus(userSession.getUsername(), username));
   	  modelAndView.addObject("blogpostList",blogpostService.getUserBlogpostList(username, userSession.getUsername()));
 			return modelAndView;
 		}
+	
+	@RequestMapping(value = "/unconnect", method = RequestMethod.POST)
+	public ModelAndView removeFriend(HttpServletRequest request,  HttpSession session){ 
+		
+		
+		UserSession userSession=(UserSession) session.getAttribute("session");
+		String username=request.getParameter("username");
+		friendService.unconnectUser(userSession.getUsername(),username);
+		 	
+		String result= "This user is now not connected with you";
+		 
+    	ModelAndView modelAndView = new ModelAndView("UserPage","notifyMessage", result);
+  	  modelAndView.addObject("userDetails",userService.getUser(username));
+	  modelAndView.addObject("connectStatus", userService.friendStatus(userSession.getUsername(), username));
+  	  modelAndView.addObject("blogpostList",blogpostService.getUserBlogpostList(username, userSession.getUsername()));
+			return modelAndView;
+		}
+	
+	
+	
 }

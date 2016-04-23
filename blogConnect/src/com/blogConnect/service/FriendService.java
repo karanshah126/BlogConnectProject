@@ -14,10 +14,12 @@ public class FriendService {
 	NotificationDAO notificationDAO;
 	public String connectUser(String userInSession,String friendname) {
 		friendDAO.addFriend(userInSession, friendname);
-		notificationDAO.removeRequest(userInSession, friendname);
 		return "User Connected";
 	}
 	
+	public void unconnectUser(String userInSession,String friendname) {
+		friendDAO.removeFriend(userInSession, friendname);
+	}
 	
 	
 }

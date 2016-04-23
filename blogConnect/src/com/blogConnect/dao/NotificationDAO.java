@@ -29,14 +29,14 @@ public class NotificationDAO {
        String sql2="INSERT INTO usernotification (username, notifid) VALUES (?, ?)";
        
   jdbcTemplate.update(sql ,count ,notification.getType(),notification.getContent(),notification.getSendername(), notification.getReceivername());		
-		jdbcTemplate.update(sql2, notification.getReceivername(), notification.getNotifid());
+		jdbcTemplate.update(sql2, notification.getReceivername(), count);
 	}
 	
 	public void removeRequest(String userInSession, String friendname)
 	{
 		String sql="DELETE from notification where type='connect' AND ((receivername='"
 				+userInSession+"' AND sendername='"+friendname+"') OR (receivername='"
-				+friendname+"' AND sendername='"+userInSession+"')";
+				+friendname+"' AND sendername='"+userInSession+"'))";
 		
         jdbcTemplate.update(sql);
 	}
@@ -46,7 +46,7 @@ public class NotificationDAO {
 		
 
 		  List<Notification> notificationList = new ArrayList<Notification>();  
-		  String sql = "select * from notification where (select notifid from usernotification where username='"+username+"')";  
+		  String sql = "select * from notification where notifid in (select notifid from usernotification where username='"+username+"')";  
 		  notificationList = jdbcTemplate.query(sql, new NotificationMapper());  
 		
 			  return notificationList;

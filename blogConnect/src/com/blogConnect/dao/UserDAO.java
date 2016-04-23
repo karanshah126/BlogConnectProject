@@ -70,6 +70,7 @@ public class UserDAO {
 		String storedPassword = getUser(email).getPassword();
 	
 		
+		
 		BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder(); 
 
 		
@@ -116,14 +117,16 @@ public class UserDAO {
 		   int checkIfReqSent=jdbcTemplate.queryForObject(sql2,int.class);
 		   int checkIfReqReceived=jdbcTemplate.queryForObject(sql3,int.class);
 		   
-		   if(checkIfFriend>0)
-			   return "Already Connected";
+		   if(checkIfFriend==1)
+			   return "Your Profile";
+		   else if(checkIfFriend==2)
+			   return "Connected";
 		   else if(checkIfReqSent>0)
-			   return "Request to connect already sent";
+			   return "Connect Request Sent";
 		   else if(checkIfReqReceived>0)
-			   return "Request to connect received";
+			   return "Respond to Connect Request";
 		   else
-			   return "Not connected";
+			   return "Connect";
 		   
 		}
 

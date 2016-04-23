@@ -109,13 +109,18 @@ public class UserDAO {
 					+"') OR (friendname='"+userInSession+"' AND username='"+UserName+"')";
 		
 		String sql2="Select Count(*) from notification where sendername='"+userInSession
-				+"' AND type='friendrequest' AND receivername='"+UserName+"'";
+				+"' AND type='connect' AND receivername='"+UserName+"'";
 		String sql3="Select Count(*) from notification where sendername='"+UserName
-				+"' AND type='friendrequest' AND receivername='"+userInSession+"'";
+				+"' AND type='connect' AND receivername='"+userInSession+"'";
 		
 		   int checkIfFriend=jdbcTemplate.queryForObject(sql1,int.class);
 		   int checkIfReqSent=jdbcTemplate.queryForObject(sql2,int.class);
 		   int checkIfReqReceived=jdbcTemplate.queryForObject(sql3,int.class);
+		   
+		   System.out.println("checkIfFriend :"+checkIfFriend);
+		   System.out.println("checkIfReqSent:"+checkIfReqSent);
+		   System.out.println("checkIfReqReceived: "+checkIfReqReceived);
+		   
 		   
 		   if(checkIfFriend==1)
 			   return "Your Profile";

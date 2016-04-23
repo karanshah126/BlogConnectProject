@@ -22,8 +22,8 @@ public class FriendDAO {
 
 	public void addFriend(String userInSession, String friendname ) {
 	
-       String sql = "INSERT INTO friends ('"+userInSession+"','"+friendname+"')";
-       String sql2 = "INSERT INTO friends ('"+friendname+"','"+userInSession+"')";
+       String sql = "INSERT INTO friends values('"+userInSession+"','"+friendname+"')";
+       String sql2 = "INSERT INTO friends values('"+friendname+"','"+userInSession+"')";
        
 	        jdbcTemplate.update(sql);
 	        jdbcTemplate.update(sql2);

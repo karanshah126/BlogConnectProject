@@ -96,7 +96,7 @@
         <span id="name">${userDetails.firstName} ${userDetails.lastName}</span>
         <span id="bio">${userDetails.bio}</span>
        	 <input style="position:absolute;" type="submit" id="connect" value="${connectStatus}"/> 
-         <button style="position:absolute;" class="message" id="friendmessage"> + Message</button>
+         <button style="position:absolute;" class="message" id="friendmessage">Message</button>
        </div>
       <div class="row">
       <form id="messageForm" name="messageForm" method="post" action="messageUser">

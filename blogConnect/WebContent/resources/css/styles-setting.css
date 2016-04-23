@@ -205,7 +205,7 @@ input.ng-valid.ng-touched {
 		
 		
 	#uniqueButton{
-	.btn {
+	
     display: inline-block;
    /* padding: 12px 24px;*/
     margin-bottom: 0;
@@ -233,7 +233,7 @@ input.ng-valid.ng-touched {
         -ms-user-select: none;
          -o-user-select: none;
             user-select: none;
-}
+
 	
 	
 	

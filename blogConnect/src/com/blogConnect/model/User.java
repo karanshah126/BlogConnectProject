@@ -14,6 +14,7 @@ public class User
 		 private String gender;
 		 private String birthdate;
 		 private String profilePicture;
+		 private String usertype;
 	
 		 
 		  
@@ -87,6 +88,14 @@ public class User
 
 		public void setProfilePicture(String profilePicture) {
 			this.profilePicture = profilePicture;
+		}
+
+		public String getUsertype() {
+			return usertype;
+		}
+
+		public void setUsertype(String usertype) {
+			this.usertype = usertype;
 		}
 
 

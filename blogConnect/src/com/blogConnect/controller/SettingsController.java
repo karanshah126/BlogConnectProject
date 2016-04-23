@@ -4,7 +4,6 @@ package com.blogConnect.controller;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -14,7 +13,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
@@ -118,6 +116,18 @@ public class SettingsController {
 		
 	}
 	
+	@RequestMapping(value = "/updatePrivacySettings", method = RequestMethod.POST )
+	public ModelAndView setNewPrivacy(HttpServletRequest request, HttpSession session) {
+		UserSession userSession=(UserSession) session.getAttribute("session");
+		
+		String usertype=request.getParameter("usertype");
+		String result=userService.updatePrivacySettings(usertype, userSession.getUsername());
+		
+		ModelAndView modelAndView = new ModelAndView("Settings");
+	       modelAndView.addObject("userDetails",userService.getUser(userSession.getUsername()));
+	       modelAndView.addObject("logMessage", result);
+		return modelAndView;
+	}
 		
 	}
 

@@ -24,11 +24,11 @@ public class UserDAO {
 
 	public void insertData(User user) {
 	
-       String sql = "INSERT INTO user (firstName, lastName, email, username, password)"
-	                    + " VALUES (?, ?, ?, ?, ?)";
+       String sql = "INSERT INTO user (firstName, lastName, email, username, password, usertype)"
+	                    + " VALUES (?, ?, ?, ?, ?, ?)";
        String sql2= "   Insert into friends values('"+user.getUsername()+"','"+user.getUsername()+"') ";
 	        jdbcTemplate.update(sql, user.getFirstName(), user.getLastName(),
-	                user.getEmail(), user.getUsername(), hashPassword(user.getPassword()));
+	                user.getEmail(), user.getUsername(), hashPassword(user.getPassword()), "public");
 	        jdbcTemplate.update(sql2);
 	
 	}
@@ -95,6 +95,15 @@ public class UserDAO {
 		        jdbcTemplate.update(sql);
 		
 		}
+	
+	public void updatePrivacySettings(String usertype,String UserName) {
+		
+	       String sql = "UPDATE user SET usertype='"+usertype+"' WHERE username='"+UserName+"'";
+
+		        jdbcTemplate.update(sql);
+		
+		}
+	
 	
 	public void resetPassword(String newPassword, String username)
 	{

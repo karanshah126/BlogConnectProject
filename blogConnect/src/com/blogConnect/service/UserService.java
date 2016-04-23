@@ -1,6 +1,6 @@
 package com.blogConnect.service;
 
-import java.util.List;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -43,6 +43,12 @@ public class UserService {
 
 		  userDAO.updateInfoSettings(user,username);  
 		  return "Information Updated";
+		 } 
+	 
+	 public String updatePrivacySettings(String usertype, String username) { 
+
+		  userDAO.updatePrivacySettings(usertype,username);  
+		  return "Privacy settings Updated";
 		 } 
 	 
 	 public void resetPassword(String password, String userInSession)

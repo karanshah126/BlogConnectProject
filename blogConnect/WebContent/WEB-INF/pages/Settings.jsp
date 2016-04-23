@@ -142,9 +142,9 @@
 
 
 	<form action="updatePrivacySettings" method="post" class="col-lg-offset-1 col-lg-5" id="privacySettings" style="display:none">
-        <input type="radio" name="usertype" id="private" />
+        <input type="radio" name="usertype" id="private" value="private" />
         <label for="private">Private Account</label>
-        <input type="radio" name="usertype" id="public" />
+        <input type="radio" name="usertype" id="public" value="public" checked/>
         <label for="public">Public Account</label>
          <input class="col-lg-offset-8 col-lg-4 signupbutton" id="signupbutton1" type="submit" value="Update" name="submit"/>
           <p id="buttonErrorMessage1"></p>

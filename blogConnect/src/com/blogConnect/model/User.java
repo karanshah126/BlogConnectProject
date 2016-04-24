@@ -11,8 +11,6 @@ public class User
 		 private String password;  
 		 private String email;
 		 private String bio;
-		 private String gender;
-		 private String birthdate;
 		 private String profilePicture;
 		 private String usertype;
 	
@@ -64,22 +62,6 @@ public class User
 
 		public void setBio(String bio) {
 			this.bio = bio;
-		}
-
-		public String getGender() {
-			return gender;
-		}
-
-		public void setGender(String gender) {
-			this.gender = gender;
-		}
-
-		public String getBirthdate() {
-			return birthdate;
-		}
-
-		public void setBirthdate(String birthdate) {
-			this.birthdate = birthdate;
 		}
 
 		public String getProfilePicture() {

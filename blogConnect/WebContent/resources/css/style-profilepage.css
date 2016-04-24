@@ -531,9 +531,10 @@ textarea.ng-valid.ng-touched {
 	font-weight:600;
 	font-size:16px;
 	display:block;
-	position:absolute;
+	/*position:absolute;
 	left:70%;
-	bottom:12%;
+	bottom:12%;*/
+	float:right;
 	  font-size: 1.5rem;
   font-weight: 200;
   background-color:#0287C5;
@@ -548,9 +549,10 @@ textarea.ng-valid.ng-touched {
 	font-weight:600;
 	font-size:16px;
 	display:block;
-	position:absolute;
+	float:right;
+	/*position:absolute;
 	left:90%;
-	bottom:15%;
+	bottom:15%;*/
 	  font-size: 1.5rem;
   font-weight: 200;
   background-color:#0287C5;

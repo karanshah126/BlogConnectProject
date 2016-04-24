@@ -36,9 +36,10 @@
 					<h2> <a href="homepage"> BLOGCONNECT</a> </h2>
 					</div>
                     
-                    <div class="col-lg-4 col-md-4 col-sm-5 col-xs-8"> 
+                 <div class="col-lg-4 col-md-4 col-sm-5 col-xs-8"> 
 					<!--<div class="col-lg-offset-1 col-lg-4 col-md-offset-1 col-md-5 col-sm-offset-1 col-sm-7 col-xs-12">-->
  						<form method="post" action="search">
+ 						<label style="position:relative; width:100%;">
                         <div id="custom-search-input">
                           <!--  <div class="input-group">-->
                                 
@@ -51,12 +52,12 @@
                                        
                          <!--   </div>-->
                         </div>
-                        <button class="btn btn-danger" type="submit" style="float:left; margin-top:30px; height:20px; width:10px;">
+                        <button class="btn btn-danger" type="submit" style="float:left; margin-top:7%; height:20px; width:10px; position:absolute;">
                                         <span class=" glyphicon glyphicon-search"></span>
                                    		</button>
+                                   		</label>
                                         </form>
                      </div>
-                      
                         <div class="col-lg-2 col-lg-offset-2 col-md-offset-1 col-md-3 col-sm-3 col-xs-4 username">
      								Hi ${session.getUsername()}!
                         </div>    
@@ -95,8 +96,11 @@
        	<img id="profile-image" src="${userDetails.profilePicture}" height="60" width="60"/>
         <span id="name">${userDetails.firstName} ${userDetails.lastName}</span>
         <span id="bio">${userDetails.bio}</span>
-       	 <input style="position:absolute;" type="submit" id="connect" value="${connectStatus}"/> 
-         <button style="position:absolute;" class="message" id="friendmessage">Message</button>
+        <label style="float:right; margin-top:10%;">
+       	 <input type="submit" id="connect" value="${connectStatus}"/> 
+         <button style="margin:5px;" class="message" id="friendmessage">Message</button>
+         <div style="clear:both;"></div>
+         </label>
        </div>
       <div class="row">
       <form id="messageForm" name="messageForm" method="post" action="messageUser">
@@ -239,13 +243,13 @@
       <div class="col-lg-6">
      
      <div class="gpwrap">
-	<img src="${blog.authorimage}" height="30" width="30"> <b>${blog.author}</b> <small>Posted 2 days ago</small>
-	<hr/>
-	<div class="gppost"><p>${blog.title}</p>
+	<img src="${blog.authorimage}" height="30" width="30" /> <b>${blog.author}</b> 
+	<hr/> <p style="font-weight:700;">${blog.title}</p>
+	<div class="gppost">
 	
 	<p>${blog.content}</p>
-<p><img src="${blog.image}" height="200" width="200"></p>
-</div>
+	<p><img class="imagen" src="${blog.image}" height="200" width="200"/></p>
+	</div>
 </div>
      
      

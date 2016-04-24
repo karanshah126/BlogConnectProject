@@ -24,11 +24,11 @@ public class UserDAO {
 
 	public void insertData(User user) {
 	
-       String sql = "INSERT INTO user (firstName, lastName, email, username, password, usertype)"
-	                    + " VALUES (?, ?, ?, ?, ?, ?)";
+       String sql = "INSERT INTO user (firstName, lastName, email, username, password, usertype, profilePicture)"
+	                    + " VALUES (?, ?, ?, ?, ?, ?, ?)";
        String sql2= "   Insert into friends values('"+user.getUsername()+"','"+user.getUsername()+"') ";
 	        jdbcTemplate.update(sql, user.getFirstName(), user.getLastName(),
-	                user.getEmail(), user.getUsername(), hashPassword(user.getPassword()), "public");
+	                user.getEmail(), user.getUsername(), hashPassword(user.getPassword()), "public", "http://i.imgur.com/NyQn3wO.png");
 	        jdbcTemplate.update(sql2);
 	
 	}
@@ -89,8 +89,7 @@ public class UserDAO {
 	public void updateInfoSettings(User user,String UserName) {
 		
 	       String sql = "UPDATE user SET firstName='"+user.getFirstName()+"', lastName='"+user.getLastName()
-	       +"', bio='"+user.getBio()+"', gender='"+user.getGender()+"', birthdate='"+user.getBirthdate()+
-	       "', profilePicture='"+user.getProfilePicture()+"' WHERE username='"+UserName+"'";
+	       +"', bio='"+user.getBio()+"', profilePicture='"+user.getProfilePicture()+"' WHERE username='"+UserName+"'";
 
 		        jdbcTemplate.update(sql);
 		

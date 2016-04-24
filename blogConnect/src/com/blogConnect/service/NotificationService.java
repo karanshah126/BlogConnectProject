@@ -15,12 +15,22 @@ public class NotificationService {
 	@Autowired
 	UserDAO userDAO;
 	public String insertNotification(Notification notification) {
-		notificationDAO.insertNotification(notification);
+		
 		
 		if (notification.getType().equals("connect"))
+		{
+			notificationDAO.insertNotification(notification);
 			return "Request to connect sent.";
+		}
 		else
-			return "Message sent.";
+		{
+			String r=friendStatus(notification.getSendername(),notification.getReceivername());
+			if(r.equals("Connected")||r.equals("Your Profile"))
+				{notificationDAO.insertNotification(notification);
+			return "Message sent.";}
+			else
+				return "This user is not your Friend. Cannot send message.";
+		}
 	}
 	
 	public String friendStatus(String userInSession,String username){

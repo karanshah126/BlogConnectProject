@@ -25,9 +25,10 @@
 						<h2> <a href="homepage"> BLOGCONNECT</a> </h2>
 					</div>
 
-     <div class="col-lg-4 col-md-4 col-sm-5 col-xs-8"> 
+        <div class="col-lg-4 col-md-4 col-sm-5 col-xs-8"> 
 					<!--<div class="col-lg-offset-1 col-lg-4 col-md-offset-1 col-md-5 col-sm-offset-1 col-sm-7 col-xs-12">-->
  						<form method="post" action="search">
+ 						<label style="position:relative; width:100%;">
                         <div id="custom-search-input">
                           <!--  <div class="input-group">-->
                                 
@@ -40,9 +41,10 @@
                                        
                          <!--   </div>-->
                         </div>
-                        <button class="btn btn-danger" type="submit" style="float:left; margin-top:30px; height:20px; width:10px;">
+                        <button class="btn btn-danger" type="submit" style="float:left; margin-top:7%; height:20px; width:10px; position:absolute;">
                                         <span class=" glyphicon glyphicon-search"></span>
                                    		</button>
+                                   		</label>
                                         </form>
                      </div>
           <div class="col-lg-2 col-lg-offset-2 col-md-offset-1 col-md-3 col-sm-3 col-xs-4 username">

@@ -444,6 +444,8 @@ float: right;
 
 a {
   color: #2D8BCF;
+  font-size: 1.5em;
+  font-weight: 700;
   font-family: Lato, 'Helvetica Nueue', Helvetica, Arial, sans-serif;
 }
 
@@ -524,12 +526,22 @@ textarea.ng-valid.ng-touched {
 	font-weight:800;
 	font-size:24px;
 	display:block;
-	position:absolute;
+	position:relative;
 	/*left:25%;
 	top:20%;*/
 	float:left;
-	left:35%;
+	
 	/*top:10%;*/
+}
+.downname {
+    font-family: Gotham, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 200;
+    font-size: 16px;
+    display: block;
+    position: absolute;
+    left: 40%;
+    top: 15%;
+    float: left;
 }
 
 

@@ -272,7 +272,7 @@
 					}
 					
 					// Calculate no of lines
-					lines = height/lHeight;
+					lines = parseInt(height/lHeight);
 					s.remaining['lines'] = lines - s.o.truncate;
 					
 					// Hide remaining lines and update class

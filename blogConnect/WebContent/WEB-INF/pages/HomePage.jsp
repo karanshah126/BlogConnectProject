@@ -29,9 +29,10 @@
 						<h2> <a href="homepage"> BLOGCONNECT</a> </h2>
 					</div>
                     
-               <div class="col-lg-4 col-md-4 col-sm-5 col-xs-8"> 
+       <div class="col-lg-4 col-md-4 col-sm-5 col-xs-8"> 
 					<!--<div class="col-lg-offset-1 col-lg-4 col-md-offset-1 col-md-5 col-sm-offset-1 col-sm-7 col-xs-12">-->
  						<form method="post" action="search">
+ 						<label style="position:relative; width:100%;">
                         <div id="custom-search-input">
                           <!--  <div class="input-group">-->
                                 
@@ -44,17 +45,18 @@
                                        
                          <!--   </div>-->
                         </div>
-                        <button class="btn btn-danger" type="submit" style="float:left; margin-top:30px; height:20px; width:10px;">
+                        <button class="btn btn-danger" type="submit" style="float:left; margin-top:6%; height:20px; width:10px; position:absolute;">
                                         <span class=" glyphicon glyphicon-search"></span>
                                    		</button>
+                                   		</label>
                                         </form>
                      </div>
-                         <div class="col-lg-1 col-md-2 col-sm-2 col-xs-2 username">
+                         <div class="col-lg-2 col-lg-offset-1 col-md-2 col-sm-3 col-xs-4 username">
      						Hi ${session.getUsername()}!
                             
                         </div> 
                         
-                          <div id="button" class=" col-lg-offset-1 col-lg-1 col-md-2 col-sm-2 col-xs-2 username">
+                          <div id="button" class=" col-lg-1 col-md-2 col-sm-2 col-xs-2 username">
      						<form method="post" action="logout"><input type="submit" name="logout" value="Log Out" style="font-size:18px; float:left;" />
                             </form>
                         </div>  
@@ -100,7 +102,7 @@
 	<div class="gppost">
 	
 	<p>${blog.content}</p>
-	<p><img src="${blog.image}" height="200" width="200"/></p>
+	<p><img class="imagen" src="${blog.image}" height="200" width="200"/></p>
 	</div>
 </div>
      

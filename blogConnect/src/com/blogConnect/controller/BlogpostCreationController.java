@@ -40,7 +40,7 @@ public class BlogpostCreationController {
 	
 	MultipartHttpServletRequest multipartRequest = (MultipartHttpServletRequest) request;
 	MultipartFile file = multipartRequest.getFile("upload");
-	String imageURL="null";
+	String imageURL="http://i.imgur.com/NyQn3wO.png";
 	
 	
 	if(!file.isEmpty())

@@ -27,9 +27,10 @@
 					<h2> <a href="homepage"> BLOGCONNECT</a> </h2>
 					</div>
 
-                  <div class="col-lg-4 col-md-4 col-sm-5 col-xs-8"> 
+                    <div class="col-lg-4 col-md-4 col-sm-5 col-xs-8"> 
 					<!--<div class="col-lg-offset-1 col-lg-4 col-md-offset-1 col-md-5 col-sm-offset-1 col-sm-7 col-xs-12">-->
  						<form method="post" action="search">
+ 						<label style="position:relative; width:100%;">
                         <div id="custom-search-input">
                           <!--  <div class="input-group">-->
                                 
@@ -42,9 +43,10 @@
                                        
                          <!--   </div>-->
                         </div>
-                        <button id="uniqueButton" class="btn btn-danger" type="submit" style="float:left; margin-top:30px; height:20px; width:10px;">
+                        <button class="btn btn-danger" type="submit" style="float:left; margin-top:7%; height:30px; width:35px; position:absolute;">
                                         <span class=" glyphicon glyphicon-search"></span>
                                    		</button>
+                                   		</label>
                                         </form>
                      </div>
                         <div class="col-lg-2 col-lg-offset-2 col-md-offset-1 col-md-3 col-sm-3 col-xs-4 username">
@@ -109,13 +111,7 @@
  				</p>
 			</div>
   	</label>
-  	<label class="col-lg-offset-1 col-lg-7" for="datebirth" style="float: left;">Date of Birth<br>
-  		<input type="text" name="birthdate" class="allInput" style="width: 200px;" value="${userDetails.birthdate}">
- 			<div>
-				 <p ng-show="prosettingForm.bDay.$invalid && prosettingForm.bDay.$touched ">Enter a valid Date mm/dd/yyyy.
- 			 	 </p>
-			</div>
-  	</label>
+ 
    	<label id="profilePicture" for="profilePicture" class="col-lg-offset-1 col-lg-4">Profile Picture<br>
     	<img src="${userDetails.profilePicture}" style="float:left; border-radius:4px; height:100px; width:100px; padding-left:10px;" />
    	</label>
@@ -132,7 +128,7 @@
 		 <p ng-show="prosettingForm.comment.$invalid && prosettingForm.comment.$touched ">200 words limit.
  	 	 </p>
   	</label>
- 	 	<input type="button" class="col-lg-offset-7 col-lg-2 signupbutton" id="image123" value="Change Dp"/>
+ 	 	<input type="button" class="col-lg-offset-7 col-lg-2 signupbutton" id="image123" value="Change Picture"/>
     <input class="col-lg-2 signupbutton" id="signupbutton" type="submit" value="Update" name="submit"/>
     <p id="buttonErrorMessage"></p>
     <p>${logMessage}</p>

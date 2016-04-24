@@ -1,11 +1,8 @@
-$(document).ready(function() {
-    
-
+$(document).ready(function() {    
 $('.gpwrap .gppost').collapser({
 	mode: 'lines',
 	truncate: 5,
 	changeText: true,
-	showText: 'Read more( %s )'
+	showText: 'Read more'
 });
-
 });

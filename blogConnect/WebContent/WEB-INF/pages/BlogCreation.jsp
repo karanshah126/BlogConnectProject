@@ -141,7 +141,7 @@
         <label for="private" style="float:left; padding:5px; font-weight:400; color:#777777; font-size:1.5em;">Private
         <input type="radio" name="type" id="private" value="private" /> </label>
  <label for="public" style="float:left; padding:5px; font-weight:400; color:#777777; font-size:1.5em;">Public
-        <input type="radio" name="type" id="pubs" value="public" /> </label>
+        <input type="radio" name="type" id="pubs" value="public" checked/> </label>
 
      
         </div>

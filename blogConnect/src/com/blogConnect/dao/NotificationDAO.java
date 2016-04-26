@@ -46,7 +46,7 @@ public class NotificationDAO {
 		
 
 		  List<Notification> notificationList = new ArrayList<Notification>();  
-		  String sql = "select * from notification where notifid in (select notifid from usernotification where username='"+username+"')";  
+		  String sql = "select * from notification where notifid in (select notifid from usernotification where username='"+username+"') ORDER BY notifid DESC";  
 		  notificationList = jdbcTemplate.query(sql, new NotificationMapper());  
 		
 			  return notificationList;
